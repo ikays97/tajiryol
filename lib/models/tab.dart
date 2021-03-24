@@ -1,67 +1,146 @@
-import 'package:tajiryol/models/brand.dart';
-import 'package:tajiryol/models/promotion.dart';
-import 'package:tajiryol/models/slider.dart';
-import 'package:tajiryol/models/sub_category.dart';
+import 'package:json_annotation/json_annotation.dart';
+import 'package:tajiryol/models/child/brand.dart';
+import 'package:tajiryol/models/child/promotion.dart';
+import 'package:tajiryol/models/child/slider.dart';
+import 'package:tajiryol/models/subcategory.dart';
+part 'tab.g.dart';
 
+@JsonSerializable()
 class TabModel {
-  String slug_tm;
-  String slug_ru;
-  String name_tm;
-  String name_ru;
-  String icon;
-  List<SliderItem> slides;
-  List<SubCategoryModel> subcategories;
-  List<BrandItem> brands;
-  List<PromotionModel> promotions;
+  @JsonKey(name: 'slug')
+  final String slug;
+
+  @JsonKey(name: 'name_tm')
+  final String name_tm;
+
+  @JsonKey(name: 'name_ru')
+  final String name_ru;
+
+  @JsonKey(name: 'icon')
+  final String icon;
+
+  @JsonKey(name: 'slides')
+  final List<Slider> sliders;
+
+  @JsonKey(name: 'subcategories')
+  final List<Subcategory> subcategories;
+
+  @JsonKey(name: 'brands')
+  final List<Brand> brands;
+
+  @JsonKey(name: 'promotions')
+  final List<Promotion> promotions;
 
   TabModel({
-    this.slug_tm,
-    this.slug_ru,
-    this.name_tm,
-    this.name_ru,
-    this.icon,
-    this.slides,
-    this.subcategories,
-    this.brands,
-    this.promotions,
+    required this.slug,
+    required this.name_tm,
+    required this.name_ru,
+    required this.icon,
+    required this.sliders,
+    required this.subcategories,
+    required this.brands,
+    required this.promotions,
   });
+  factory TabModel.fromJson(Map<String, dynamic> json) =>
+      _$TabModelFromJson(json);
 
-  TabModel.fromJson(Map<String, dynamic> json)
-      : slug_tm = json['slug_tm'],
-        slug_ru = json['slug_ru'],
-        name_tm = json['name_tm'],
-        name_ru = json['name_ru'],
-        icon = json['icon'],
-        slides = List<SliderItem>.from(
-          json['slides'].map(
-            (e) => SliderItem.fromJson(e),
-          ),
-        ),
-        subcategories = List<SubCategoryModel>.from(
-          json['subcategories'].map(
-            (e) => SubCategoryModel.fromJson(e),
-          ),
-        ),
-        brands = List<BrandItem>.from(
-          json['brands'].map(
-            (e) => BrandItem.fromJson(e),
-          ),
-        ),
-        promotions = List<PromotionModel>.from(
-          json['promotions'].map(
-            (e) => PromotionModel.fromJson(e),
-          ),
-        );
+  Map<String, dynamic> toJson() => _$TabModelToJson(this);
 }
 
-class TabListModel {
-  List<TabModel> list;
-  TabListModel({this.list});
-  factory TabListModel.fromJson(dynamic json) {
-    var items = json as List;
-    var itemModals = items.map((item) {
-      return TabModel.fromJson(item);
-    }).toList();
-    return TabListModel(list: itemModals);
-  }
-}
+// slider converter
+// class _SliderConverter implements JsonConverter<Slider, Object?> {
+//   const _SliderConverter();
+
+//   @override
+//   Slider fromJson(Object? json) {
+//     if (json is Map<String, dynamic> &&
+//         json.containsKey('id') &&
+//         json.containsKey('name') &&
+//         json.containsKey('image') &&
+//         json.containsKey('cat_id')) {
+//       return Slider.fromJson(json);
+//     }
+//     return json as Slider;
+//   }
+
+//   @override
+//   Object toJson(Slider object) {
+//     // This will only work if `object` is a native JSON type:
+//     //   num, String, bool, null, etc
+//     // Or if it has a `toJson()` function`.
+//     return object;
+//   }
+// }
+
+// // _SubcategoryConverter
+// class _SubcategoryConverter implements JsonConverter<Subcategory, Object?> {
+//   const _SubcategoryConverter();
+
+//   @override
+//   Subcategory fromJson(Object? json) {
+//     if (json is Map<String, dynamic> &&
+//         json.containsKey('id') &&
+//         json.containsKey('name') &&
+//         json.containsKey('icon')) {
+//       return Subcategory.fromJson(json);
+//     }
+//     return json as Subcategory;
+//   }
+
+//   @override
+//   Object toJson(Subcategory object) {
+//     // This will only work if `object` is a native JSON type:
+//     //   num, String, bool, null, etc
+//     // Or if it has a `toJson()` function`.
+//     return object;
+//   }
+// }
+
+// // _BrandConverter
+// class _BrandConverter implements JsonConverter<Brand, Object?> {
+//   const _BrandConverter();
+
+//   @override
+//   Brand fromJson(Object? json) {
+//     if (json is Map<String, dynamic> &&
+//         json.containsKey('slug') &&
+//         json.containsKey('pic_url') &&
+//         json.containsKey('name')) {
+//       return Brand.fromJson(json);
+//     }
+//     return json as Brand;
+//   }
+
+//   @override
+//   Object toJson(Brand object) {
+//     // This will only work if `object` is a native JSON type:
+//     //   num, String, bool, null, etc
+//     // Or if it has a `toJson()` function`.
+//     return object;
+//   }
+// }
+
+// // _PromotionConverter
+// class _PromotionConverter implements JsonConverter<Promotion, Object?> {
+//   const _PromotionConverter();
+
+//   @override
+//   Promotion fromJson(Object? json) {
+//     if (json is Map<String, dynamic> &&
+//         json.containsKey('id') &&
+//         json.containsKey('name') &&
+//         json.containsKey('image') &&
+//         json.containsKey('cat_id')) {
+//       return Promotion.fromJson(json);
+//     }
+//     return json as Promotion;
+//   }
+
+//   @override
+//   Object toJson(Promotion object) {
+//     // This will only work if `object` is a native JSON type:
+//     //   num, String, bool, null, etc
+//     // Or if it has a `toJson()` function`.
+//     return object;
+//   }
+// }

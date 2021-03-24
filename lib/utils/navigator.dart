@@ -1,49 +1,47 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import 'package:tajiryol/pages/main/provider/main_provider.dart';
+import 'package:tajiryol/pages/main_page/provider/main_provider.dart';
 
 class MyNavigator {
-  // 设置一次 context 方便后面
-  static BuildContext ctx;
+  // initial context
+  static BuildContext? ctx;
 
-  // push 新页面
-  static Future<T> push<T extends Object>(Widget page, {BuildContext context}) {
+  // push
+  static Future push<T extends Object>(Widget? page, {BuildContext? context}) {
     final _ctx = context ?? ctx;
-    FocusScope.of(_ctx).requestFocus(FocusNode());
-    return Navigator.push(_ctx, MaterialPageRoute(builder: (_ctx) => page));
+    FocusScope.of(_ctx!).requestFocus(FocusNode());
+    return Navigator.push(_ctx, MaterialPageRoute(builder: (_ctx) => page!));
   }
 
-  // pop 返回
-  static pop<T extends Object>({BuildContext context, T data}) {
+  // pop
+  static pop<T extends Object>({BuildContext? context, T? data}) {
     final _ctx = context ?? ctx;
-    return Navigator.pop(_ctx, data);
+    return Navigator.pop(_ctx!, data);
   }
 
-  /// 返回根页面
-  static void popToRoot({BuildContext context}) {
+  static void popToRoot({BuildContext? context}) {
     final _ctx = context ?? ctx;
-    Navigator.popUntil(_ctx, (predicate) {
+    Navigator.popUntil(_ctx!, (predicate) {
       return predicate.isFirst;
     });
   }
 
-  /// 返回首页
-  static void popToHome({BuildContext context}) {
+  /// to home
+  static void popToHome({BuildContext? context}) {
     final _ctx = context ?? ctx;
-    final mainProvder = Provider.of<MainProvider>(_ctx, listen: false);
+    final mainProvder = Provider.of<MainProvider>(_ctx!, listen: false);
     mainProvder.setTabBarSelectedIndex = 0;
     Navigator.popUntil(_ctx, (predicate) {
       return predicate.isFirst;
     });
   }
 
-  /// 返回并删除页面
   static void pushAndRemove(Widget page,
-      {int removeCount = 1, BuildContext context}) {
+      {int removeCount = 1, BuildContext? context}) {
     var index = 0;
     final _ctx = context ?? ctx;
-    Navigator.of(_ctx).pushAndRemoveUntil(
+    Navigator.of(_ctx!).pushAndRemoveUntil(
       MaterialPageRoute(builder: (context) => page),
       (route) {
         index++;
@@ -52,10 +50,10 @@ class MyNavigator {
     );
   }
 
-  // iOS 从底部向上出来的页面
-  static present(Widget page, {BuildContext context}) {
+  // iOS present
+  static present(Widget page, {BuildContext? context}) {
     final _ctx = context ?? ctx;
-    Navigator.of(_ctx).push(
+    Navigator.of(_ctx!).push(
         MaterialPageRoute(fullscreenDialog: true, builder: (context) => page));
   }
 }

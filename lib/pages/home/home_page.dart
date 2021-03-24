@@ -1,15 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import 'package:tajiryol/pages/home/store/home_provider.dart';
+import 'package:tajiryol/components/my_loading.dart';
+import 'package:tajiryol/pages/home/store/index_provider.dart';
 import 'package:tajiryol/pages/home/tab_page.dart';
-import 'package:tajiryol/widgets/my_loading.dart';
 import 'component/tabbar.dart';
 import 'component/topbar.dart';
-import 'package:yupekyol/pages/home/tab.dart';
-import 'package:yupekyol/pages/index/provider/index_provider.dart';
-import 'package:yupekyol/widgets/my_loading_widget.dart';
-import 'components/tabbar.dart';
-import 'components/topbar.dart';
 
 class HomePage extends StatefulWidget {
   @override

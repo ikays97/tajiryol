@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:tajiryol/models/tab.dart';
+import 'package:tajiryol/models/maincategory.dart';
 
 class KTabBarWidget extends StatelessWidget implements PreferredSizeWidget {
-  final List<TabModel> tabs;
+  final List<Maincategory>? tabs;
 
-  const KTabBarWidget({Key key, @required this.tabs}) : super(key: key);
+  const KTabBarWidget({Key? key, @required this.tabs}) : super(key: key);
 
   get preferredSize {
     return Size.fromHeight(30);
@@ -21,11 +21,11 @@ class KTabBarWidget extends StatelessWidget implements PreferredSizeWidget {
           indicatorSize: TabBarIndicatorSize.label,
           isScrollable: true,
           labelColor: Theme.of(context).accentColor,
-          tabs: tabs
+          tabs: tabs!
               .map((tab) => Container(
                     height: 30.0,
                     child: new Tab(
-                      text: tab.name_tm,
+                      text: tab.nameTM,
                     ),
                   ))
               .toList()),

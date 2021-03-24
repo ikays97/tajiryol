@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_swiper/flutter_swiper.dart';
-import 'package:tajiryol/models/slider.dart';
-import 'package:tajiryol/widgets/my_cached_image.dart';
+import 'package:tajiryol/components/my_cached_image.dart';
+import 'package:tajiryol/models/child/slider.dart' as Slides;
 
 class TabSwiperBanner extends StatelessWidget {
-  final List<SliderItem> banners;
+  final List<Slides.Slider>? banners;
   TabSwiperBanner({this.banners});
   @override
   Widget build(BuildContext context) {
@@ -31,10 +31,10 @@ class TabSwiperBanner extends StatelessWidget {
         child: Swiper(
           itemBuilder: (BuildContext context, index) {
             return MyCachedNetworkImage(
-              imageurl: banners[index].slide,
+              imageurl: banners?[index].image,
             );
           },
-          itemCount: banners.length,
+          itemCount: banners?.length,
           pagination: new SwiperPagination(
             alignment: Alignment.bottomCenter,
             builder: RectSwiperPaginationBuilder(

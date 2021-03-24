@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="19" height="16" viewBox="0 0 19 16">
+  <g id="ios-list" transform="translate(-64.974 -103.636)">
+    <ellipse id="Ellipse_6" data-name="Ellipse 6" cx="1.5" cy="2" rx="1.5" ry="2" transform="translate(64.974 109.636)" fill="#fff"/>
+    <circle id="Ellipse_7" data-name="Ellipse 7" cx="1.5" cy="1.5" r="1.5" transform="translate(64.974 103.636)" fill="#fff"/>
+    <circle id="Ellipse_8" data-name="Ellipse 8" cx="1.5" cy="1.5" r="1.5" transform="translate(64.974 116.636)" fill="#fff"/>
+    <path id="Path_5" data-name="Path 5" d="M188.549,122.308H176.314a.814.814,0,1,0,0,1.628h12.235a.814.814,0,0,0,0-1.628Zm0,6.308H176.314a.814.814,0,1,0,0,1.628h12.235a.814.814,0,0,0,0-1.628Zm-12.235-10.989h12.235a.814.814,0,0,0,0-1.628H176.314a.814.814,0,1,0,0,1.628Z" transform="translate(-105.389 -11.482)" fill="#fff"/>
+  </g>
+</svg>

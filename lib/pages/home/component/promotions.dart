@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:tajiryol/models/promotion.dart';
-import 'package:tajiryol/widgets/my_cached_image.dart';
+import 'package:tajiryol/components/my_cached_image.dart';
+import 'package:tajiryol/models/child/promotion.dart';
 
 class TabPromotions extends StatelessWidget {
-  final List<PromotionModel> data;
+  final List<Promotion>? data;
   TabPromotions({this.data});
   @override
   Widget build(BuildContext context) {
@@ -15,7 +15,7 @@ class TabPromotions extends StatelessWidget {
   }
 
   Widget _build(Size size) {
-    List<Widget> listWidgets = data.map((i) {
+    List<Widget> listWidgets = data!.map((i) {
       // var bgColor = string2Color(i.bgColor);
       // Color titleColor = string2Color(i.titleColor);
       // Color subtitleColor = string2Color(i.subtitleColor);
@@ -26,7 +26,7 @@ class TabPromotions extends StatelessWidget {
           width: size.width,
           height: size.height * 0.2,
           child: MyCachedNetworkImage(
-            imageurl: i.picUrl,
+            imageurl: i.image,
           ),
         ),
       );

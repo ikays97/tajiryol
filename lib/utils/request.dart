@@ -8,7 +8,7 @@ class RequestUtil {
   static RequestUtil _instance = RequestUtil._internal();
   factory RequestUtil() => _instance;
 
-  Dio dio;
+  Dio? dio;
 
   RequestUtil._internal() {
     /// BaseOptions、Options、RequestOptions
@@ -54,14 +54,14 @@ class RequestUtil {
     dio = new Dio(options);
 
     // Add interceptor
-    dio.interceptors
-        .add(InterceptorsWrapper(onRequest: (RequestOptions options) {
+    dio?.interceptors
+        .add(InterceptorsWrapper(onRequest: (RequestOptions? options) {
       // Do something before the request is sent
       return options; //continue
-    }, onResponse: (Response response) {
+    }, onResponse: (Response? response) {
       // Do some preprocessing before returning the response data
       return response; // continue
-    }, onError: (DioError e) {
+    }, onError: (DioError? e) {
       // Do some preprocessing when the request fails
       return createErrorEntity(e);
     }));
@@ -79,7 +79,7 @@ class RequestUtil {
   Future get(
     String path, {
     dynamic params,
-    Options options,
+    Options? options,
   }) async {
     try {
       Options requestOptions = options ?? Options();
@@ -90,20 +90,20 @@ class RequestUtil {
       // if (_authorization != null) {
       //   requestOptions = requestOptions.merge(headers: _authorization);
       // }
-      var response = await dio.get(
+      var response = await dio?.get(
         path,
         queryParameters: params,
         options: requestOptions,
       );
 
-      return response.data;
+      return response?.data;
     } on DioError catch (e) {
       throw createErrorEntity(e);
     }
   }
 
   ///  post operating
-  Future post(String path, {dynamic params, Options options}) async {
+  Future post(String path, {dynamic params, Options? options}) async {
     try {
       Options requestOptions = options ?? Options();
 
@@ -114,15 +114,15 @@ class RequestUtil {
       //   requestOptions = requestOptions.merge(headers: _authorization);
       // }
       var response =
-          await dio.post(path, data: params, options: requestOptions);
-      return response.data;
+          await dio?.post(path, data: params, options: requestOptions);
+      return response?.data;
     } on DioError catch (e) {
       return {'error': e};
     }
   }
 
   ///  put operating
-  Future put(String path, {dynamic params, Options options}) async {
+  Future put(String path, {dynamic params, Options? options}) async {
     Options requestOptions = options ?? Options();
 
     /// The following three lines of code are the
@@ -131,26 +131,12 @@ class RequestUtil {
     // if (_authorization != null) {
     //   requestOptions = requestOptions.merge(headers: _authorization);
     // }
-    var response = await dio.put(path, data: params, options: requestOptions);
-    return response.data;
+    var response = await dio?.put(path, data: params, options: requestOptions);
+    return response?.data;
   }
 
   ///  patch operating
-  Future patch(String path, {dynamic params, Options options}) async {
-    Options requestOptions = options ?? Options();
-
-    /// The following three lines of code are the
-    /// operation of obtaining the token and then merging it into the header
-    // Map<String, dynamic> _authorization = getAuthorizationHeader();
-    // if (_authorization != null) {
-    //   requestOptions = requestOptions.merge(headers: _authorization);
-    // }
-    var response = await dio.patch(path, data: params, options: requestOptions);
-    return response.data;
-  }
-
-  /// delete operating
-  Future delete(String path, {dynamic params, Options options}) async {
+  Future patch(String path, {dynamic params, Options? options}) async {
     Options requestOptions = options ?? Options();
 
     /// The following three lines of code are the
@@ -160,12 +146,12 @@ class RequestUtil {
     //   requestOptions = requestOptions.merge(headers: _authorization);
     // }
     var response =
-        await dio.delete(path, data: params, options: requestOptions);
-    return response.data;
+        await dio?.patch(path, data: params, options: requestOptions);
+    return response?.data;
   }
 
-  ///  post form Form submission operation
-  Future postForm(String path, {dynamic params, Options options}) async {
+  /// delete operating
+  Future delete(String path, {dynamic? params, Options? options}) async {
     Options requestOptions = options ?? Options();
 
     /// The following three lines of code are the
@@ -174,15 +160,30 @@ class RequestUtil {
     // if (_authorization != null) {
     //   requestOptions = requestOptions.merge(headers: _authorization);
     // }
-    var response = await dio.post(path,
+    var response =
+        await dio?.delete(path, data: params, options: requestOptions);
+    return response?.data;
+  }
+
+  ///  post form Form submission operation
+  Future postForm(String path, {dynamic params, Options? options}) async {
+    Options requestOptions = options ?? Options();
+
+    /// The following three lines of code are the
+    /// operation of obtaining the token and then merging it into the header
+    // Map<String, dynamic> _authorization = getAuthorizationHeader();
+    // if (_authorization != null) {
+    //   requestOptions = requestOptions.merge(headers: _authorization);
+    // }
+    var response = await dio?.post(path,
         data: FormData.fromMap(params), options: requestOptions);
-    return response.data;
+    return response?.data;
   }
 }
 
 // Error message
-ErrorEntity createErrorEntity(DioError error) {
-  switch (error.type) {
+ErrorEntity createErrorEntity(DioError? error) {
+  switch (error?.type) {
     case DioErrorType.CANCEL:
       {
         return ErrorEntity(code: -1, message: "Request cancellation");
@@ -206,67 +207,68 @@ ErrorEntity createErrorEntity(DioError error) {
     case DioErrorType.RESPONSE:
       {
         try {
-          int errCode = error.response.statusCode;
+          int? errCode = error?.response?.statusCode;
           // String errMsg = error.response.statusMessage;
           // return ErrorEntity(code: errCode, message: errMsg);
           switch (errCode) {
             case 400:
               {
                 return ErrorEntity(
-                    code: errCode, message: "Request syntax error");
+                    code: errCode!, message: "Request syntax error");
               }
               break;
             case 401:
               {
-                return ErrorEntity(code: errCode, message: "Permission denied");
+                return ErrorEntity(
+                    code: errCode!, message: "Permission denied");
               }
               break;
             case 403:
               {
                 return ErrorEntity(
-                    code: errCode, message: "Server refused to execute");
+                    code: errCode!, message: "Server refused to execute");
               }
               break;
             case 404:
               {
                 return ErrorEntity(
-                    code: errCode, message: "can not connect to the server");
+                    code: errCode!, message: "can not connect to the server");
               }
               break;
             case 405:
               {
                 return ErrorEntity(
-                    code: errCode, message: "Request method is forbidden");
+                    code: errCode!, message: "Request method is forbidden");
               }
               break;
             case 500:
               {
                 return ErrorEntity(
-                    code: errCode, message: "Server internal error");
+                    code: errCode!, message: "Server internal error");
               }
               break;
             case 502:
               {
-                return ErrorEntity(code: errCode, message: "Invalid request");
+                return ErrorEntity(code: errCode!, message: "Invalid request");
               }
               break;
             case 503:
               {
-                return ErrorEntity(code: errCode, message: "Server is down");
+                return ErrorEntity(code: errCode!, message: "Server is down");
               }
               break;
             case 505:
               {
                 return ErrorEntity(
-                    code: errCode,
+                    code: errCode!,
                     message: "Does not support HTTP protocol request");
               }
               break;
             default:
               {
-                // return ErrorEntity(code: errCode, message: "unknown mistake");
+                // return ErrorEntity(code: errCode!, message: "unknown mistake");
                 return ErrorEntity(
-                    code: errCode, message: error.response.statusMessage);
+                    code: errCode!, message: error!.response!.statusMessage!);
               }
           }
         } on Exception catch (_) {
@@ -276,15 +278,15 @@ ErrorEntity createErrorEntity(DioError error) {
       break;
     default:
       {
-        return ErrorEntity(code: -1, message: error.message);
+        return ErrorEntity(code: -1, message: error!.message);
       }
   }
 }
 
 // Exception handling
 class ErrorEntity implements Exception {
-  int code;
-  String message;
+  int? code;
+  String? message;
   ErrorEntity({this.code, this.message});
 
   String toString() {
