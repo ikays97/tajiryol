@@ -8,17 +8,17 @@ const double kNavigationBarHeight = 44.0;
 // AppBar
 class MyAppBar extends AppBar implements PreferredSizeWidget {
   MyAppBar({
-    Key? key,
-    Widget? title,
-    AppBarBackType? leadingType,
-    WillPopCallback? onWillPop,
-    Widget? leading,
-    Brightness? brightness,
-    Color? backgroundColor,
-    bool? centerTitle = false,
-    double? elevation,
-    PreferredSizeWidget? bottom,
-    BuildContext? context,
+    Key key,
+    Widget title,
+    AppBarBackType leadingType,
+    WillPopCallback onWillPop,
+    Widget leading,
+    Brightness brightness,
+    Color backgroundColor,
+    bool centerTitle = false,
+    double elevation,
+    PreferredSizeWidget bottom,
+    BuildContext context,
   }) : super(
           key: key,
           title: title ??
@@ -27,17 +27,17 @@ class MyAppBar extends AppBar implements PreferredSizeWidget {
                 child: Image.asset(
                   "assets/images/logo.jpeg",
                   width: 95,
-                  color: Theme.of(context!).accentColor,
+                  color: Theme.of(context).primaryColor,
                 ),
               ),
           centerTitle: centerTitle,
-          backgroundColor: Theme.of(context!).backgroundColor,
+          backgroundColor: Theme.of(context).primaryColor,
           leading: leading ??
               (leadingType == AppBarBackType.None
                   ? null
                   : AppBarBack(
                       leadingType ?? AppBarBackType.Back,
-                      onWillPop: onWillPop!,
+                      onWillPop: onWillPop,
                     )),
           actions: [],
           elevation: elevation ?? 0.5,
@@ -49,8 +49,8 @@ class MyAppBar extends AppBar implements PreferredSizeWidget {
 }
 
 class AppBarBack extends StatelessWidget {
-  final AppBarBackType? _backType;
-  final WillPopCallback? onWillPop;
+  final AppBarBackType _backType;
+  final WillPopCallback onWillPop;
 
   AppBarBack(this._backType, {this.onWillPop});
 
@@ -58,7 +58,7 @@ class AppBarBack extends StatelessWidget {
   Widget build(BuildContext context) {
     return GestureDetector(
       onTap: () async {
-        final willBack = onWillPop == null ? true : await onWillPop!();
+        final willBack = onWillPop == null ? true : await onWillPop();
         if (!willBack) return;
         Navigator.pop(context);
       },
@@ -88,7 +88,7 @@ class MyTitle extends StatelessWidget {
     return Text(
       _title,
       style: TextStyle(
-          color: Theme.of(context).textTheme.bodyText2!.color,
+          color: Theme.of(context).textTheme.bodyText2.color,
           fontSize: 16,
           fontWeight: FontWeight.w500),
     );

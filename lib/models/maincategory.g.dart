@@ -8,9 +8,9 @@ part of 'maincategory.dart';
 
 Maincategory _$MaincategoryFromJson(Map<String, dynamic> json) {
   return Maincategory(
-    slug: json['slug'] as String?,
-    nameRU: json['name_ru'] as String?,
-    nameTM: json['name_tm'] as String?,
+    slug: json['slug'] as String,
+    nameRU: json['name_ru'] as String,
+    nameTM: json['name_tm'] as String,
   );
 }
 
@@ -23,13 +23,14 @@ Map<String, dynamic> _$MaincategoryToJson(Maincategory instance) =>
 
 MaincategoryList _$MaincategoryListFromJson(Map<String, dynamic> json) {
   return MaincategoryList(
-    maincategories: (json['data'] as List<dynamic>)
-        .map((e) => Maincategory.fromJson(e as Map<String, dynamic>))
-        .toList(),
+    maincategories: (json['data'] as List)
+        ?.map((e) =>
+            e == null ? null : Maincategory.fromJson(e as Map<String, dynamic>))
+        ?.toList(),
   );
 }
 
 Map<String, dynamic> _$MaincategoryListToJson(MaincategoryList instance) =>
     <String, dynamic>{
-      'data': instance.maincategories.map((e) => e.toJson()).toList(),
+      'data': instance.maincategories?.map((e) => e?.toJson())?.toList(),
     };

@@ -4,13 +4,13 @@ part 'subcategory.g.dart';
 @JsonSerializable()
 class Subcategory {
   @JsonKey(name: 'id')
-  final int? id;
+  final int id;
 
   @JsonKey(name: 'name')
-  final String? name;
+  final String name;
 
   @JsonKey(name: 'icon')
-  final String? icon;
+  final String icon;
 
   Subcategory({this.id, this.name, this.icon});
 

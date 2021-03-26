@@ -4,16 +4,16 @@ part 'slider.g.dart';
 @JsonSerializable()
 class Slider {
   @JsonKey(name: 'id')
-  final int? id;
+  final int id;
 
   @JsonKey(name: 'name')
-  final String? name;
+  final String name;
 
   @JsonKey(name: 'image')
-  final String? image;
+  final String image;
 
   @JsonKey(name: 'cat_id')
-  final int? catId;
+  final int catId;
 
   const Slider({this.id, this.name, this.image, this.catId});
 

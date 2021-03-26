@@ -12,9 +12,9 @@ class Brand {
   @JsonKey(name: 'name')
   final String name;
 
-  const Brand({required this.slug, required this.picUrl, required this.name});
+  const Brand({this.slug, this.picUrl, this.name});
 
-  factory Brand.fromJson(Map<String, dynamic>? json) => _$BrandFromJson(json!);
+  factory Brand.fromJson(Map<String, dynamic> json) => _$BrandFromJson(json);
 
   Map<String, dynamic> toJson() => _$BrandToJson(this);
 }

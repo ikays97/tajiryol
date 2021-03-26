@@ -2,11 +2,11 @@ import 'package:flutter/material.dart';
 
 class LabelSection extends StatelessWidget {
   const LabelSection({
-    Key? key,
+    Key key,
     this.name,
   }) : super(key: key);
 
-  final String? name;
+  final String name;
 
   @override
   Widget build(BuildContext context) {
@@ -16,7 +16,7 @@ class LabelSection extends StatelessWidget {
         horizontal: 15.0,
       ),
       child: Text(
-        name!,
+        name,
         style: Theme.of(context).textTheme.headline5,
       ),
     );
@@ -24,8 +24,8 @@ class LabelSection extends StatelessWidget {
 }
 
 class LeftTitle extends StatelessWidget {
-  final String? title;
-  const LeftTitle({Key? key, this.title}) : super(key: key);
+  final String title;
+  const LeftTitle({Key key, this.title}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -40,7 +40,7 @@ class LeftTitle extends StatelessWidget {
             height: 14,
           ),
           Text(
-            title!,
+            title,
             style: TextStyle(
               color: Colors.black12,
               fontSize: 16,

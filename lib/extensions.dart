@@ -11,7 +11,7 @@ void showSnackbar(BuildContext context, String message) {
     ..showSnackBar(SnackBar(content: Text(message)));
 }
 
-void hideKeyboard({BuildContext? context}) {
+void hideKeyboard({BuildContext context}) {
   if (context == null) {
     FocusManager.instance.primaryFocus?.unfocus();
   } else {

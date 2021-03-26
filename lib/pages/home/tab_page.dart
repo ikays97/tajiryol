@@ -10,9 +10,9 @@ import 'component/subcat_grid.dart';
 import 'component/swiper.dart';
 
 class MyTab extends StatelessWidget {
-  final String? tabSlug;
+  final String tabSlug;
 
-  const MyTab({Key? key, @required this.tabSlug}) : super(key: key);
+  const MyTab({Key key, @required this.tabSlug}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -25,7 +25,7 @@ class MyTab extends StatelessWidget {
 
 class TabContainer extends StatefulWidget {
   // final String tabid;
-  TabContainer({Key? key}) : super(key: key);
+  TabContainer({Key key}) : super(key: key);
   @override
   State<StatefulWidget> createState() => TabContainerState();
 }
@@ -34,7 +34,7 @@ class TabContainerState extends State<TabContainer>
     with SingleTickerProviderStateMixin {
   final GlobalKey<State> crowdFundingFloorKey = new GlobalKey();
   bool isIntoView = false;
-  AnimationController? controller;
+  AnimationController controller;
   @override
   void initState() {
     controller = AnimationController(

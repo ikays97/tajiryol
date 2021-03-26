@@ -1,23 +1,23 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
-const String _appFontFamily = 'Montserrat';
-const Color _textLightColor = Color(0xff000814);
+const String _appFontFamily = 'Oswald';
+const Color _textLightColor = Color(0xFF151516);
 
-const int _appPrimaryColorValue = 0xFFF5AB49;
-const MaterialColor appPrimarySwatch =
-    MaterialColor(_appPrimaryColorValue, <int, Color>{
-  50: Color(0xffffdd00),
-  100: Color(0xffffd000),
-  200: Color(0xffffd000),
-  300: Color(0xffffc300),
-  400: Color(0xffffb700),
-  500: Color(0xffffaa00),
-  600: Color(0xffffa200),
-  700: Color(0xffff9500),
-  800: Color(0xffff8800),
-  900: Color(0xffff7b00),
-});
+const int _appPrimaryColorValue = 0xFFF29B62;
+// const MaterialColor appPrimarySwatch =
+//     MaterialColor(_appPrimaryColorValue, <int, Color>{
+//   50: Color(0xffffdd00),
+//   100: Color(0xffffd000),
+//   200: Color(0xffffd000),
+//   300: Color(0xffffc300),
+//   400: Color(0xffffb700),
+//   500: Color(0xffffaa00),
+//   600: Color(0xffffa200),
+//   700: Color(0xffff9500),
+//   800: Color(0xffff8800),
+//   900: Color(0xffff7b00),
+// });
 
 TextTheme _lightTextTheme(Typography typography) {
   final textTheme = typography.black;
@@ -28,11 +28,14 @@ TextTheme _lightTextTheme(Typography typography) {
   );
 }
 
-ThemeData genAppLightTheme(MaterialColor primarySwatch) {
+ThemeData genAppLightTheme() {
   final typography = Typography.material2018();
   final lightTextTheme = _lightTextTheme(typography);
   return ThemeData(
     brightness: Brightness.light,
+    primaryColor: Color(_appPrimaryColorValue),
+    // accentColor: Color(_appPrimaryColorValue),
+    accentColorBrightness: Brightness.dark,
     fontFamily: _appFontFamily,
     typography: typography,
     textTheme: lightTextTheme,
@@ -64,8 +67,8 @@ ThemeData genAppLightTheme(MaterialColor primarySwatch) {
 }
 
 class AppSettings {
-  final ThemeData? theme;
-  final Locale? locale;
+  final ThemeData theme;
+  final Locale locale;
 
   const AppSettings({
     @required this.theme,
@@ -73,14 +76,14 @@ class AppSettings {
   });
 
   SystemUiOverlayStyle resolvedSystemUiOverlayStyle() {
-    return theme?.brightness == Brightness.dark
+    return theme.brightness == Brightness.dark
         ? SystemUiOverlayStyle.dark
         : SystemUiOverlayStyle.light;
   }
 
   AppSettings copyWith({
-    ThemeData? theme,
-    Locale? locale,
+    ThemeData theme,
+    Locale locale,
   }) {
     return AppSettings(
       theme: theme ?? this.theme,
@@ -96,29 +99,29 @@ class AppSettings {
   @override
   int get hashCode => theme.hashCode ^ locale.hashCode;
 
-  static AppSettings? of(BuildContext? context) {
+  static AppSettings of(BuildContext context) {
     final scope =
-        context?.dependOnInheritedWidgetOfExactType<_ModelBindingScope>();
-    return scope?.modelBindingState?.currentModel;
+        context.dependOnInheritedWidgetOfExactType<_ModelBindingScope>();
+    return scope.modelBindingState.currentModel;
   }
 
   static void update(BuildContext context, AppSettings newModel) {
     final scope =
         context.dependOnInheritedWidgetOfExactType<_ModelBindingScope>();
-    scope?.modelBindingState?.updateModel(newModel);
+    scope.modelBindingState?.updateModel(newModel);
   }
 }
 
 class _ModelBindingScope extends InheritedWidget {
-  final _ModelBindingState? modelBindingState;
+  final _ModelBindingState modelBindingState;
 
   _ModelBindingScope({
-    Key? key,
+    Key key,
     @required this.modelBindingState,
-    @required Widget? child,
+    @required Widget child,
   }) : super(
           key: key,
-          child: child!,
+          child: child,
         );
 
   @override
@@ -126,8 +129,8 @@ class _ModelBindingScope extends InheritedWidget {
 }
 
 class ModelBinding extends StatefulWidget {
-  final AppSettings? initialModel;
-  final Widget? child;
+  final AppSettings initialModel;
+  final Widget child;
 
   ModelBinding({
     @required this.initialModel,
@@ -139,7 +142,7 @@ class ModelBinding extends StatefulWidget {
 }
 
 class _ModelBindingState extends State<ModelBinding> {
-  AppSettings? currentModel;
+  AppSettings currentModel;
 
   @override
   void initState() {
@@ -147,7 +150,7 @@ class _ModelBindingState extends State<ModelBinding> {
     currentModel = widget.initialModel;
   }
 
-  void updateModel(AppSettings? newModel) {
+  void updateModel(AppSettings newModel) {
     if (currentModel != newModel) {
       setState(() {
         currentModel = newModel;

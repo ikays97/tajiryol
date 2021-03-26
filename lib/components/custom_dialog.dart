@@ -3,31 +3,31 @@ import 'package:flutter/material.dart';
 ///Customize Dialog
 class CustomDialog extends StatefulWidget {
   //------------------Dialog without pictures------------------------
-  final String? title; //Popup title
-  final TextStyle? titleStyle; // Heading style
-  final Widget? content; // Pop-up content
-  final String? confirmContent; // Button text
-  final String? cancelContent; // Cancel button text
-  final Color? confirmTextColor; // OK button text color
+  final String title; //Popup title
+  final TextStyle titleStyle; // Heading style
+  final Widget content; // Pop-up content
+  final String confirmContent; // Button text
+  final String cancelContent; // Cancel button text
+  final Color confirmTextColor; // OK button text color
   final bool
       isCancel; // Whether there is a cancel button, the default is false true: yes false: no
-  final Color? confirmColor; // OK button color
-  final Color? cancelColor; // Cancel button color
-  final Color? cancelTextColor; // Cancel button text color
+  final Color confirmColor; // OK button color
+  final Color cancelColor; // Cancel button color
+  final Color cancelTextColor; // Cancel button text color
   final bool outsideDismiss;
 
   ///  Click outside of the
   /// pop-up window to close the pop-up window, the default is true true: can be
   /// closed false: can not be closed
-  final Function? confirmCallback; // Click the OK button to call back
-  final Function? dismissCallback; // Callback when the pop-up window is closed
+  final Function confirmCallback; // Click the OK button to call back
+  final Function dismissCallback; // Callback when the pop-up window is closed
 
   //------------------Dialog with pictures------------------------
-  final String? image; //dialog add picture
-  final String? imageHintText; //Text reminder below the picture
+  final String image; //dialog add picture
+  final String imageHintText; //Text reminder below the picture
 
   const CustomDialog({
-    Key? key,
+    Key key,
     this.title,
     this.content,
     this.confirmContent,
@@ -57,7 +57,7 @@ class _CustomDialogState extends State<CustomDialog> {
     Navigator.of(context).pop(1);
     Future.delayed(Duration(milliseconds: 250), () {
       if (widget.confirmCallback != null) {
-        widget.confirmCallback!();
+        widget.confirmCallback();
       }
     });
   }
@@ -67,7 +67,7 @@ class _CustomDialogState extends State<CustomDialog> {
     Navigator.of(context).pop(0);
     Future.delayed(Duration(milliseconds: 250), () {
       if (widget.dismissCallback != null) {
-        widget.dismissCallback!();
+        widget.dismissCallback();
       }
     });
   }

@@ -1,12 +1,26 @@
 import 'package:flutter/material.dart';
-import 'package:get/route_manager.dart';
+import 'package:get/get.dart';
+import 'package:provider/provider.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:tajiryol/app_settings.dart';
-
+import 'pages/home/store/index_provider.dart';
 import 'pages/main_page/main_page.dart';
+import 'pages/main_page/provider/main_provider.dart';
 
 void main(List<String> args) {
-  runApp(TajiryolApp());
+  runApp(
+    MultiProvider(
+      providers: [
+        ChangeNotifierProvider(
+          create: (_) => MainProvider(),
+        ),
+        ChangeNotifierProvider(
+          create: (_) => IndexProvider(),
+        ),
+      ],
+      child: TajiryolApp(),
+    ),
+  );
 }
 
 class TajiryolApp extends StatefulWidget {
@@ -15,15 +29,15 @@ class TajiryolApp extends StatefulWidget {
 }
 
 class _TajiryolAppState extends State<TajiryolApp> {
-  Future<SharedPreferences>? prefsFuture;
+  Future<SharedPreferences> prefsFuture;
 
-  Widget buildInitialData(BuildContext? context, SharedPreferences? prefs) {
-    const localeEN = const Locale('ru', 'RU');
+  Widget buildInitialData(BuildContext context, SharedPreferences prefs) {
+    const localeEN = const Locale('en', 'EN');
     const supportedLocales = [localeEN];
     return ModelBinding(
       initialModel: AppSettings(
         locale: localeEN,
-        theme: genAppLightTheme(appPrimarySwatch),
+        theme: genAppLightTheme(),
       ),
       child: Builder(
         builder: (context) {
@@ -32,7 +46,7 @@ class _TajiryolAppState extends State<TajiryolApp> {
           return GetMaterialApp(
             title: 'Tajiryol',
             debugShowCheckedModeBanner: false,
-            theme: genAppLightTheme(appPrimarySwatch),
+            theme: genAppLightTheme(),
             locale: settings?.locale,
             supportedLocales: supportedLocales,
             builder: (context, child) => _Unfocus(child: child),
@@ -66,17 +80,17 @@ class _TajiryolAppState extends State<TajiryolApp> {
 /// entire application.
 class _Unfocus extends StatelessWidget {
   const _Unfocus({
-    Key? key,
+    Key key,
     @required this.child,
   }) : super(key: key);
 
-  final Widget? child;
+  final Widget child;
 
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
       behavior: HitTestBehavior.opaque,
-      onTap: () => FocusManager.instance.primaryFocus?.unfocus(),
+      onTap: () => FocusManager.instance.primaryFocus.unfocus(),
       child: child,
     );
   }

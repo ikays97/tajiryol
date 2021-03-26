@@ -3,16 +3,16 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
 class MyTextFormField extends StatelessWidget {
-  final TextEditingController? controller;
-  final Function? validator;
-  final String? hintText;
-  final TextInputType? keyboardType;
-  final int? maxLines;
-  final int? minLines;
+  final TextEditingController controller;
+  final Function validator;
+  final String hintText;
+  final TextInputType keyboardType;
+  final int maxLines;
+  final int minLines;
   final bool obscureText;
 
   const MyTextFormField({
-    Key? key,
+    Key key,
     @required this.controller,
     @required this.validator,
     this.hintText,

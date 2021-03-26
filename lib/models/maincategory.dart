@@ -1,18 +1,16 @@
-import 'dart:html';
-
 import 'package:json_annotation/json_annotation.dart';
 part 'maincategory.g.dart';
 
 @JsonSerializable()
 class Maincategory {
   @JsonKey(name: 'slug')
-  final String? slug;
+  final String slug;
 
   @JsonKey(name: 'name_tm')
-  final String? nameTM;
+  final String nameTM;
 
   @JsonKey(name: 'name_ru')
-  final String? nameRU;
+  final String nameRU;
 
   const Maincategory({this.slug, this.nameRU, this.nameTM});
 
@@ -27,7 +25,7 @@ class MaincategoryList {
   @JsonKey(name: 'data')
   final List<Maincategory> maincategories;
 
-  const MaincategoryList({required this.maincategories});
+  const MaincategoryList({this.maincategories});
 
   factory MaincategoryList.fromJson(Map<String, dynamic> json) =>
       _$MaincategoryListFromJson(json);

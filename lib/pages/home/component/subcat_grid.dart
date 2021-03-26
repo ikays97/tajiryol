@@ -4,9 +4,9 @@ import 'package:tajiryol/components/my_cached_image.dart';
 import 'package:tajiryol/models/subcategory.dart';
 
 class TabSubCategoryGrid extends StatelessWidget {
-  final String? label;
-  final List<Subcategory>? subcategories;
-  const TabSubCategoryGrid({Key? key, @required this.subcategories, this.label})
+  final String label;
+  final List<Subcategory> subcategories;
+  const TabSubCategoryGrid({Key key, @required this.subcategories, this.label})
       : super(key: key);
 
   //
@@ -14,7 +14,7 @@ class TabSubCategoryGrid extends StatelessWidget {
     final String code = Get.locale.languageCode;
     final _screenWidth = MediaQuery.of(context).size.width;
     List<Widget> gridItemList = [];
-    for (int i = 0; i < subcategories!.length; i++) {
+    for (int i = 0; i < subcategories.length; i++) {
       gridItemList.add(
         InkWell(
           onTap: () {},
@@ -33,7 +33,7 @@ class TabSubCategoryGrid extends StatelessWidget {
                     width: _screenWidth * 0.3,
                     // padding: EdgeInsets.only(bottom: 2),
                     child: MyCachedNetworkImage(
-                      imageurl: subcategories?[i].icon,
+                      imageurl: subcategories[i].icon,
                     ),
                   ),
                 ),
@@ -43,10 +43,10 @@ class TabSubCategoryGrid extends StatelessWidget {
                     margin: EdgeInsets.only(left: 3, top: 5),
                     child: Text(
                       // subcategories[i].getName(code),
-                      subcategories?[i].name ?? 'subcategory_no_name',
+                      subcategories[i].name ?? 'subcategory_no_name',
                       maxLines: 2,
                       overflow: TextOverflow.ellipsis,
-                      style: Theme.of(context).textTheme.bodyText2!.copyWith(
+                      style: Theme.of(context).textTheme.bodyText2.copyWith(
                             fontSize: 12,
                           ),
                     ),
@@ -77,7 +77,7 @@ class TabSubCategoryGrid extends StatelessWidget {
       child: Column(
         children: [
           // if (label != null)
-          _buildLabel(context, label!),
+          _buildLabel(context, label),
           GridView.count(
             shrinkWrap: true,
             physics: NeverScrollableScrollPhysics(),

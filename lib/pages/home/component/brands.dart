@@ -2,9 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:tajiryol/models/child/brand.dart';
 
 class TabBrandsWidget extends StatelessWidget {
-  final List<Brand>? data;
-  final String? bgurl;
-  final String? fontColor;
+  final List<Brand> data;
+  final String bgurl;
+  final String fontColor;
   TabBrandsWidget({
     this.data,
     this.bgurl,
@@ -17,7 +17,7 @@ class TabBrandsWidget extends StatelessWidget {
   }
 
   Widget _buildRow(BuildContext context, double deviceHeight) {
-    List<Widget> widgets = data!.map((i) {
+    List<Widget> widgets = data.map((i) {
       return Container(
         width: deviceHeight * 0.08,
         height: deviceHeight * 0.08,

@@ -8,10 +8,10 @@ part of 'slider.dart';
 
 Slider _$SliderFromJson(Map<String, dynamic> json) {
   return Slider(
-    id: json['id'] as int?,
-    name: json['name'] as String?,
-    image: json['image'] as String?,
-    catId: json['cat_id'] as int?,
+    id: json['id'] as int,
+    name: json['name'] as String,
+    image: json['image'] as String,
+    catId: json['cat_id'] as int,
   );
 }
 

@@ -12,7 +12,7 @@ class HomeTopBar extends StatelessWidget {
       padding: EdgeInsets.only(
         top: statusBarHeight,
         left: 10,
-        right: 10,
+        right: 15,
         bottom: 10,
       ),
       child: Column(
@@ -38,16 +38,16 @@ class HomeTopBar extends StatelessWidget {
                       children: <Widget>[
                         Center(
                           child: SvgPicture.asset(
-                            'assets/icons/cart.svg',
-                            height: 35,
-                            color: Theme.of(context).accentColor,
+                            'assets/icons/ios-cart.svg',
+                            height: 25,
+                            color: Theme.of(context).primaryColor,
                           ),
                         ),
-                        Positioned(
-                          right: 9,
-                          top: 13,
-                          child: _badgeWidget(context, "2"),
-                        )
+                        // Positioned(
+                        //   right: 9,
+                        //   top: 13,
+                        //   child: _badgeWidget(context, "2"),
+                        // )
                       ],
                     ),
                   ),
@@ -57,7 +57,6 @@ class HomeTopBar extends StatelessWidget {
             ],
           ),
           Container(
-            color: Theme.of(context).backgroundColor,
             child: Row(
               children: [
                 Expanded(
@@ -70,19 +69,23 @@ class HomeTopBar extends StatelessWidget {
                         // }));
                       },
                       child: Container(
-                        height: 34.0,
-                        padding: EdgeInsets.all(5.0),
-                        color: Color.fromRGBO(238, 238, 238, 0.5),
+                        height: 40.0,
+                        padding: EdgeInsets.all(10.0),
+                        decoration: BoxDecoration(
+                          color: Colors.white,
+                          borderRadius: BorderRadius.circular(10),
+                        ),
                         child: Row(
                           children: <Widget>[
                             Container(
                               margin: EdgeInsets.only(right: 5),
                               child: SvgPicture.asset(
-                                'assets/icons/search.svg',
+                                'assets/icons/ios-search.svg',
                                 color: Color(0xFF979797),
                                 height: 20,
                               ),
                             ),
+                            SizedBox(width: 8),
                             Text(
                               'search_hint'.tr,
                               style: TextStyle(

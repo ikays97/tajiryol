@@ -4,7 +4,7 @@ import 'package:tajiryol/components/my_cached_image.dart';
 import 'package:tajiryol/models/child/slider.dart' as Slides;
 
 class TabSwiperBanner extends StatelessWidget {
-  final List<Slides.Slider>? banners;
+  final List<Slides.Slider> banners;
   TabSwiperBanner({this.banners});
   @override
   Widget build(BuildContext context) {
@@ -31,7 +31,7 @@ class TabSwiperBanner extends StatelessWidget {
         child: Swiper(
           itemBuilder: (BuildContext context, index) {
             return MyCachedNetworkImage(
-              imageurl: banners?[index].image,
+              imageurl: banners[index].image,
             );
           },
           itemCount: banners?.length,

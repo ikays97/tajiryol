@@ -8,7 +8,7 @@ import 'package:tajiryol/models/tab.dart';
 import 'package:tajiryol/services/tab_service.dart';
 
 class TabProvider with ChangeNotifier {
-  final String? slug;
+  final String slug;
 
   RefreshController refreshController =
       RefreshController(initialRefresh: false);

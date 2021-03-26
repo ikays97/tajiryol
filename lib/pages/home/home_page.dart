@@ -17,27 +17,29 @@ class _HomePageState extends State<HomePage>
   Widget build(BuildContext context) {
     super.build(context);
     final state = Provider.of<IndexProvider>(context);
-    return state.loading
-        ? MyLoadingWidget()
-        : SafeArea(
-            child: DefaultTabController(
-              length: state.tabs.length,
-              initialIndex: 0,
-              child: Column(
-                children: <Widget>[
-                  HomeTopBar(),
-                  KTabBarWidget(tabs: state.tabs),
-                  Expanded(
-                    child: TabBarView(
-                      children: state.tabs.map((tab) {
-                        return MyTab(tabSlug: tab.slug);
-                      }).toList(),
-                    ),
-                  ),
-                ],
-              ),
-            ),
-          );
+    print(state.loading);
+    return
+        // state.loading
+        // ? MyLoadingWidget() :
+        SafeArea(
+      child: DefaultTabController(
+        length: 3,
+        initialIndex: 0,
+        child: Column(
+          children: <Widget>[
+            HomeTopBar(),
+            KTabBarWidget(tabs: state.tabs),
+            // Expanded(
+            //   child: TabBarView(
+            //     children: state.tabs.map((tab) {
+            //       return MyTab(tabSlug: tab.slug);
+            //     }).toList(),
+            //   ),
+            // ),
+          ],
+        ),
+      ),
+    );
   }
 
   @override

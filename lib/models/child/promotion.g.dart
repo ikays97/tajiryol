@@ -8,10 +8,10 @@ part of 'promotion.dart';
 
 Promotion _$PromotionFromJson(Map<String, dynamic> json) {
   return Promotion(
-    id: json['id'] as int?,
-    name: json['name'] as String?,
-    image: json['image'] as String?,
-    catId: json['cat_id'] as int?,
+    id: json['id'] as int,
+    name: json['name'] as String,
+    image: json['image'] as String,
+    catId: json['cat_id'] as int,
   );
 }
 

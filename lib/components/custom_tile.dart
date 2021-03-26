@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 
 class Tile extends StatelessWidget {
-  final String? title;
-  final dynamic? trailing;
+  final String title;
+  final dynamic trailing;
 
-  const Tile({Key? key, @required this.title, @required this.trailing})
+  const Tile({Key key, @required this.title, @required this.trailing})
       : super(key: key);
   @override
   Widget build(BuildContext context) {
@@ -14,7 +14,7 @@ class Tile extends StatelessWidget {
           Expanded(
             flex: 2,
             child: Text(
-              title!,
+              title,
               style: Theme.of(context).textTheme.bodyText2,
             ),
           ),

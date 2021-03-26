@@ -17,10 +17,10 @@ class Category {
   final List<Subcategory> categories;
 
   Category({
-    required this.name_tm,
-    required this.name_ru,
-    required this.icon,
-    required this.categories,
+    this.name_tm,
+    this.name_ru,
+    this.icon,
+    this.categories,
   });
 
   factory Category.fromJson(Map<String, dynamic> json) =>
@@ -28,26 +28,3 @@ class Category {
 
   Map<String, dynamic> toJson() => _$CategoryToJson(this);
 }
-
-// class _Converter<T> implements JsonConverter<Subcategory, Object?> {
-//   const _Converter();
-
-//   @override
-//   Subcategory fromJson(Object? json) {
-//     if (json is Map<String, dynamic> &&
-//         json.containsKey('id') &&
-//         json.containsKey('name') &&
-//         json.containsKey('icon')) {
-//       return Subcategory.fromJson(json);
-//     }
-//     return json as Subcategory;
-//   }
-
-//   @override
-//   Object toJson(Subcategory object) {
-//     // This will only work if `object` is a native JSON type:
-//     //   num, String, bool, null, etc
-//     // Or if it has a `toJson()` function`.
-//     return object;
-//   }
-// }

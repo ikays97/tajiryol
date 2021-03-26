@@ -32,14 +32,14 @@ class TabModel {
   final List<Promotion> promotions;
 
   TabModel({
-    required this.slug,
-    required this.name_tm,
-    required this.name_ru,
-    required this.icon,
-    required this.sliders,
-    required this.subcategories,
-    required this.brands,
-    required this.promotions,
+    this.slug,
+    this.name_tm,
+    this.name_ru,
+    this.icon,
+    this.sliders,
+    this.subcategories,
+    this.brands,
+    this.promotions,
   });
   factory TabModel.fromJson(Map<String, dynamic> json) =>
       _$TabModelFromJson(json);
