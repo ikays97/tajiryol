@@ -20,6 +20,7 @@ class KTabBarWidget extends StatelessWidget implements PreferredSizeWidget {
           indicatorColor: Theme.of(context).primaryColor,
           indicatorSize: TabBarIndicatorSize.label,
           isScrollable: true,
+          unselectedLabelColor: Colors.grey,
           labelColor: Theme.of(context).primaryColor,
           tabs: _tabs
               .map((tab) => Container(

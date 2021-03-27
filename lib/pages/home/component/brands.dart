@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:tajiryol/models/child/brand.dart';
+import 'package:tajiryol/models/brand.dart';
 
 class TabBrandsWidget extends StatelessWidget {
   final List<Brand> data;

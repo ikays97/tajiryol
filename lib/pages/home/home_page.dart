@@ -1,8 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import 'package:tajiryol/components/my_loading.dart';
 import 'package:tajiryol/pages/home/store/index_provider.dart';
-import 'package:tajiryol/pages/home/tab_page.dart';
 import 'component/tabbar.dart';
 import 'component/topbar.dart';
 

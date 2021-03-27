@@ -51,9 +51,9 @@ class MyBottomNavigationBar extends StatelessWidget {
           // ),
           boxShadow: [
             BoxShadow(
-              blurRadius: 20,
-              color: Colors.grey,
-              spreadRadius: 1,
+              blurRadius: 15,
+              offset: Offset(1, 0),
+              color: Colors.grey[300],
             ),
           ]),
       child: Selector<MainProvider, int>(

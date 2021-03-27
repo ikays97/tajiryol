@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:tajiryol/components/my_cached_image.dart';
-import 'package:tajiryol/models/child/promotion.dart';
+import 'package:tajiryol/models/promotion.dart';
 
 class TabPromotions extends StatelessWidget {
   final List<Promotion> data;

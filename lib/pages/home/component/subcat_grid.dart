@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:get/get.dart';
 import 'package:tajiryol/components/my_cached_image.dart';
 import 'package:tajiryol/models/subcategory.dart';
 
@@ -11,7 +10,8 @@ class TabSubCategoryGrid extends StatelessWidget {
 
   //
   List<Widget> _buildGridItem(BuildContext context) {
-    final String code = Get.locale.languageCode;
+    // TODO language code
+    // final String code = Get.locale.languageCode;
     final _screenWidth = MediaQuery.of(context).size.width;
     List<Widget> gridItemList = [];
     for (int i = 0; i < subcategories.length; i++) {

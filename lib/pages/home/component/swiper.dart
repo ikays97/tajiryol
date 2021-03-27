@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_swiper/flutter_swiper.dart';
 import 'package:tajiryol/components/my_cached_image.dart';
-import 'package:tajiryol/models/child/slider.dart' as Slides;
+import 'package:tajiryol/models/slider.dart' as Slides;
 
 class TabSwiperBanner extends StatelessWidget {
   final List<Slides.Slider> banners;

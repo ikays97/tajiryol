@@ -1,8 +1,8 @@
 import 'package:flutter/foundation.dart';
 import 'package:pull_to_refresh/pull_to_refresh.dart';
-import 'package:tajiryol/models/child/brand.dart';
-import 'package:tajiryol/models/child/promotion.dart';
-import 'package:tajiryol/models/child/slider.dart';
+import 'package:tajiryol/models/brand.dart';
+import 'package:tajiryol/models/promotion.dart';
+import 'package:tajiryol/models/slider.dart';
 import 'package:tajiryol/models/subcategory.dart';
 import 'package:tajiryol/models/tab.dart';
 import 'package:tajiryol/services/tab_service.dart';
