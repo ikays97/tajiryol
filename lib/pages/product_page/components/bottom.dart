@@ -26,7 +26,7 @@ class CartBottom extends StatelessWidget {
               Text(
                 "339.99 TMT",
                 style: TextStyle(
-                  fontSize: 15,
+                  fontSize: 12,
                   color: Colors.black26,
                   decoration: TextDecoration.lineThrough,
                 ),
@@ -34,34 +34,33 @@ class CartBottom extends StatelessWidget {
               Text(
                 "229.99 TMT",
                 style: TextStyle(
-                  fontSize: 16,
+                  fontSize: 12,
                   color: mostUsedColor,
                 ),
               ),
             ],
           ),
-          SizedBox(width: 15),
+          SizedBox(width: 10),
           Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Text(
                 'Sebetde arzanlaşyk 60%',
                 style: TextStyle(
-                  fontSize: 14,
+                  fontSize: 11,
                   fontWeight: FontWeight.w400,
                 ),
               ),
               Text(
                 '229.99 TMT',
                 style: TextStyle(
-                  fontSize: 20,
+                  fontSize: 18,
                   fontWeight: FontWeight.w500,
                   color: Color(0xffFF6600),
                 ),
               ),
             ],
           ),
-          SizedBox(width: 10),
           Expanded(
             child: Padding(
               padding: const EdgeInsets.all(8.0),
@@ -77,7 +76,7 @@ class CartBottom extends StatelessWidget {
                 child: Text(
                   'SEBEDE GEÇ',
                   style: TextStyle(
-                    fontSize: 16,
+                    fontSize: 14,
                     color: Colors.white,
                   ),
                 ),

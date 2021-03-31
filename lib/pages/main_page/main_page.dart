@@ -2,8 +2,10 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:tajiryol/components/my_appbar.dart';
 import 'package:tajiryol/components/my_bottom_navbar.dart';
+import 'package:tajiryol/pages/cart/cart_page.dart';
+import 'package:tajiryol/pages/favourite/favourite_page.dart';
 import 'package:tajiryol/pages/home/home_page.dart';
-import 'package:tajiryol/pages/product_page/product_page.dart';
+import 'package:tajiryol/pages/profile/profile_page.dart';
 import 'package:tajiryol/utils/navigator.dart';
 
 import 'provider/main_provider.dart';
@@ -51,9 +53,9 @@ class _MainPageState extends State<MainPage>
         children: [
           HomePage(),
           TestPage2(),
-          ProductPage(),
-          TestPage3(),
-          TestPage3(),
+          CartPage(),
+          FavouritesPage(),
+          ProfilePage(),
           // ProfilePage(),
         ],
       ),

@@ -10,7 +10,10 @@ class MyCachedNetworkImage extends StatelessWidget {
     return CachedNetworkImage(
       imageUrl: imageurl,
       placeholder: (_, __) => Center(
-        child: Text('placeholder-image'),
+        child: Text(
+          'placeholder-image',
+          style: TextStyle(fontSize: 9),
+        ),
       ),
       errorWidget: (_, error, __) => Center(
         child: Text('placeholder-image'),

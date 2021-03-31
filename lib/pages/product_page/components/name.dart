@@ -29,8 +29,8 @@ class BuildName extends StatelessWidget {
                 Text(
                   good.name,
                   style: TextStyle(
-                    color: Colors.grey,
-                    fontWeight: FontWeight.w300,
+                    color: Colors.black54,
+                    fontWeight: FontWeight.w400,
                     fontSize: 18,
                   ),
                 ),

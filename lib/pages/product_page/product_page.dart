@@ -1,6 +1,8 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:tajiryol/pages/product_page/components/similars.dart';
+import 'package:tajiryol/utils/navigator.dart';
+import '../../extensions.dart';
 import 'components/about.dart';
 import 'components/appbar.dart';
 import 'components/bottom.dart';
@@ -37,16 +39,57 @@ class _ProductPageState extends State<ProductPage> {
                 BuildAbout(),
                 BuildSimilars(),
                 BuildCard(
-                  leftText: 'Takmynan ertjek wagty: ',
-                  rightText: good.deliveryTime,
+                  leftText: Text('Takmynan ertjek wagty: ',
+                      style: TextStyle(
+                        fontWeight: FontWeight.w500,
+                        fontSize: 18,
+                      )),
+                  rightText: Text(
+                    good.deliveryTime,
+                    style: TextStyle(
+                      fontWeight: FontWeight.w400,
+                      fontSize: 18,
+                    ),
+                  ),
                 ),
                 BuildCard(
-                  leftText: 'Eltip bermek hyzmaty:',
-                  rightText: good.deliveryCharge,
+                    leftText: Text('Eltip bermek hyzmaty:',
+                        style: TextStyle(
+                          fontWeight: FontWeight.w500,
+                          fontSize: 18,
+                        )),
+                    rightText: Text(
+                      good.deliveryCharge,
+                      style: TextStyle(
+                        fontWeight: FontWeight.w400,
+                        fontSize: 18,
+                      ),
+                    )),
+                BuildCard(
+                  leftText: Text(good.supplier,
+                      style: TextStyle(
+                        fontWeight: FontWeight.w500,
+                        fontSize: 18,
+                      )),
+                  rightText: Text(
+                    "Harytlaryny gor >",
+                    style: TextStyle(
+                      color: Theme.of(context).primaryColor,
+                      fontWeight: FontWeight.w500,
+                      fontSize: 18,
+                    ),
+                  ),
                 ),
                 BuildCard(
-                  leftText: good.supplier,
-                  rightText: "Harytlaryny gor >",
+                  leftText: Text(
+                    'Şikaýat et',
+                    style: TextStyle(
+                      color: Colors.red,
+                      fontWeight: FontWeight.w500,
+                      fontSize: 18,
+                    ),
+                  ),
+                  onTap: () => _reportDialog(context),
                 ),
               ],
             ),
@@ -55,6 +98,41 @@ class _ProductPageState extends State<ProductPage> {
           CartBottom(),
         ],
       ),
+    );
+  }
+
+  void _reportDialog(BuildContext context) {
+    showDialog<void>(
+      context: context,
+      barrierDismissible: false,
+      builder: (context) {
+        return AlertDialog(
+          title: Text('Anyk cykjakmy?'),
+          content: Text(
+            "Karoci cykmana razymy? bir cyksan girmek ansat daldir aytmady diyme jiiim",
+          ),
+          actions: [
+            TextButton(
+              onPressed: () => MyNavigator.pop(),
+              child: Text(
+                'Yogou onda',
+                style: TextStyle(color: Colors.red),
+              ),
+            ),
+            TextButton(
+              onPressed: () {
+                MyNavigator.pop();
+                showSnackbar(
+                    context, "Karoci cykarjak dal seni, soragyn bamy?");
+              },
+              child: Text(
+                'Bor cykayynlay',
+                style: TextStyle(color: Colors.blue),
+              ),
+            ),
+          ],
+        );
+      },
     );
   }
 }

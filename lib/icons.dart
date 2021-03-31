@@ -9,16 +9,6 @@ class SvgIcons {
     return SvgPicture.asset(assetPath, width: 20, height: 20);
   }
 
-  // static Widget get faq => _svgAsset24dp('assets/svg/faq.svg');
-
-  // static Widget get terms => _svgAsset24dp('assets/svg/terms.svg');
-
-  // static Widget get settings => _svgAsset24dp('assets/svg/settings.svg');
-
-  // static Widget get logout => _svgAsset24dp('assets/svg/logout.svg');
-
-  // static Widget get arrowUp => _svgAsset24dp('assets/svg/arrow_up.svg');
-
   static const notifications = Icons.notifications;
 
   static Widget get cubeOutline =>

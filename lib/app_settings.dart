@@ -1,23 +1,23 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
-const String _appFontFamily = 'Oswald';
+const String _appFontFamily = 'Montserrat';
 const Color _textLightColor = Color(0xFF151516);
 
 const int _appPrimaryColorValue = 0xFFF29B62;
-// const MaterialColor appPrimarySwatch =
-//     MaterialColor(_appPrimaryColorValue, <int, Color>{
-//   50: Color(0xffffdd00),
-//   100: Color(0xffffd000),
-//   200: Color(0xffffd000),
-//   300: Color(0xffffc300),
-//   400: Color(0xffffb700),
-//   500: Color(0xffffaa00),
-//   600: Color(0xffffa200),
-//   700: Color(0xffff9500),
-//   800: Color(0xffff8800),
-//   900: Color(0xffff7b00),
-// });
+const MaterialColor appPrimarySwatch =
+    MaterialColor(_appPrimaryColorValue, <int, Color>{
+  50: Color(0xffffdd00),
+  100: Color(0xffffd000),
+  200: Color(0xffffd000),
+  300: Color(0xffffc300),
+  400: Color(0xffffb700),
+  500: Color(0xffffaa00),
+  600: Color(0xffffa200),
+  700: Color(0xffff9500),
+  800: Color(0xffff8800),
+  900: Color(0xffff7b00),
+});
 
 TextTheme _lightTextTheme(Typography typography) {
   final textTheme = typography.black;
@@ -32,6 +32,7 @@ ThemeData genAppLightTheme() {
   final typography = Typography.material2018();
   final lightTextTheme = _lightTextTheme(typography);
   return ThemeData(
+    primarySwatch: appPrimarySwatch,
     brightness: Brightness.light,
     primaryColor: Color(_appPrimaryColorValue),
     // accentColor: Color(_appPrimaryColorValue),

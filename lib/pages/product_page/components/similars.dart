@@ -97,62 +97,67 @@ class BuildSimilars extends StatelessWidget {
                                   ),
                                   Row(
                                     children: [
-                                      Column(
-                                        children: [
-                                          Text(
-                                            "${product.standardPrice} TMT",
-                                            style: TextStyle(
-                                              fontSize: 15,
-                                              color: Colors.black26,
-                                              decoration:
-                                                  TextDecoration.lineThrough,
-                                            ),
-                                          ),
-                                          Text(
-                                            "${product.discountPrice} TMT",
-                                            style: TextStyle(
-                                              fontSize: 16,
-                                              color: mostUsedColor,
-                                            ),
-                                          )
-                                        ],
-                                      ),
                                       Expanded(
-                                        child: Container(
-                                          margin: EdgeInsets.only(left: 5),
-                                          padding: EdgeInsets.all(3),
-                                          decoration: BoxDecoration(
-                                              borderRadius:
-                                                  BorderRadius.circular(12),
-                                              border: Border.all(
-                                                color: Theme.of(context)
-                                                    .primaryColor
-                                                    .withOpacity(0.6),
-                                              )),
-                                          child: Align(
-                                            alignment: Alignment.center,
-                                            child: Column(
-                                              crossAxisAlignment:
-                                                  CrossAxisAlignment.center,
-                                              children: [
-                                                Text(
-                                                  'Sebetde arzan',
-                                                  style: TextStyle(
-                                                    fontSize: 14,
-                                                    fontWeight: FontWeight.w300,
-                                                  ),
-                                                ),
-                                                Text(
-                                                  "${product.cartPrice} TMT",
-                                                  style: TextStyle(
-                                                    fontSize: 18,
-                                                    color: Theme.of(context)
-                                                        .primaryColor,
-                                                    fontWeight: FontWeight.w500,
-                                                  ),
-                                                )
-                                              ],
+                                        child: Column(
+                                          children: [
+                                            Text(
+                                              "${product.standardPrice}",
+                                              style: TextStyle(
+                                                fontSize: 13,
+                                                color: mostUsedColor,
+                                                decoration:
+                                                    TextDecoration.lineThrough,
+                                              ),
                                             ),
+                                            Text(
+                                              "${product.discountPrice}",
+                                              style: TextStyle(
+                                                fontSize: 14,
+                                                color: mostUsedColor,
+                                              ),
+                                            )
+                                          ],
+                                        ),
+                                      ),
+                                      Container(
+                                        margin: EdgeInsets.only(left: 5),
+                                        padding: EdgeInsets.only(
+                                          top: 5,
+                                          bottom: 5,
+                                          left: 7,
+                                          right: 7,
+                                        ),
+                                        decoration: BoxDecoration(
+                                            borderRadius:
+                                                BorderRadius.circular(12),
+                                            border: Border.all(
+                                              color: Theme.of(context)
+                                                  .primaryColor
+                                                  .withOpacity(0.6),
+                                            )),
+                                        child: Align(
+                                          alignment: Alignment.center,
+                                          child: Column(
+                                            crossAxisAlignment:
+                                                CrossAxisAlignment.center,
+                                            children: [
+                                              Text(
+                                                'Sebetde arzan',
+                                                style: TextStyle(
+                                                  fontSize: 10,
+                                                  fontWeight: FontWeight.w300,
+                                                ),
+                                              ),
+                                              Text(
+                                                "${product.cartPrice} TMT",
+                                                style: TextStyle(
+                                                  fontSize: 16,
+                                                  color: Theme.of(context)
+                                                      .primaryColor,
+                                                  fontWeight: FontWeight.w500,
+                                                ),
+                                              )
+                                            ],
                                           ),
                                         ),
                                       ),

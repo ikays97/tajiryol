@@ -54,7 +54,7 @@ class Product {
 const Color mostUsedColor = Color(0xFF979595);
 
 const TextStyle productLabelStyle = TextStyle(
-  fontSize: 18,
+  fontSize: 16,
   fontWeight: FontWeight.w500,
 );
 

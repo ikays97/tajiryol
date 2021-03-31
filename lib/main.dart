@@ -78,6 +78,7 @@ class _TajiryolAppState extends State<TajiryolApp> {
 ///
 /// This implements the "Unfocus when tapping in empty space" behavior for the
 /// entire application.
+
 class _Unfocus extends StatelessWidget {
   const _Unfocus({
     Key key,

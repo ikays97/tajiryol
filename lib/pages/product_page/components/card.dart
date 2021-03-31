@@ -3,58 +3,45 @@ import 'package:flutter/material.dart';
 class BuildCard extends StatelessWidget {
   const BuildCard({
     Key key,
-    this.leftText,
+    @required this.leftText,
     this.rightText,
+    this.onTap,
   }) : super(key: key);
 
-  final String leftText;
-  final String rightText;
+  final Widget leftText;
+  final Widget rightText;
+  final Function onTap;
 
   @override
   Widget build(BuildContext context) {
     return SliverToBoxAdapter(
       child: Padding(
         padding: const EdgeInsets.all(8),
-        child: ClipRRect(
-          borderRadius: BorderRadius.circular(14),
-          child: Container(
-            width: double.infinity,
-            padding: EdgeInsets.all(10),
-            color: Colors.white,
-            child: rightText != null
-                ? Row(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      Text(
+        child: InkWell(
+          onTap: onTap,
+          child: ClipRRect(
+            borderRadius: BorderRadius.circular(14),
+            child: Container(
+              width: double.infinity,
+              padding: EdgeInsets.all(10),
+              color: Colors.white,
+              child: rightText != null
+                  ? Row(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
                         leftText,
-                        style: TextStyle(
-                          fontWeight: FontWeight.w500,
-                          fontSize: 18,
-                        ),
-                      ),
-                      Spacer(),
-                      Text(
+                        Spacer(),
                         rightText,
-                        style: TextStyle(
-                          fontWeight: FontWeight.w400,
-                          fontSize: 18,
-                        ),
-                      ),
-                      SizedBox(width: 15),
-                    ],
-                  )
-                : Row(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      Text(
+                        SizedBox(width: 10),
+                      ],
+                    )
+                  : Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
                         leftText,
-                        style: TextStyle(
-                          fontWeight: FontWeight.w500,
-                          fontSize: 18,
-                        ),
-                      ),
-                    ],
-                  ),
+                      ],
+                    ),
+            ),
           ),
         ),
       ),

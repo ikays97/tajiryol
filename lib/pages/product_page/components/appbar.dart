@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:tajiryol/components/my_cached_image.dart';
+import 'package:tajiryol/utils/navigator.dart';
 
 import '../defaults.dart';
+import '../view_image.dart';
 
 class BuildAppBar extends StatelessWidget {
   const BuildAppBar({
@@ -18,10 +20,16 @@ class BuildAppBar extends StatelessWidget {
       },
       title: Text(
         'USPOLO T-Shirt',
-        style: TextStyle(color: Theme.of(context).scaffoldBackgroundColor),
+        style: TextStyle(
+          color: Theme.of(context).scaffoldBackgroundColor,
+          fontWeight: FontWeight.w500,
+        ),
       ),
-      leading: Icon(Icons.arrow_back,
-          color: Theme.of(context).scaffoldBackgroundColor),
+      leading: InkWell(
+        onTap: () => MyNavigator.pop(),
+        child: Icon(Icons.arrow_back,
+            color: Theme.of(context).scaffoldBackgroundColor),
+      ),
       pinned: true,
       expandedHeight: MediaQuery.of(context).size.height * 0.4,
       flexibleSpace: FlexibleSpaceBar(
@@ -30,7 +38,10 @@ class BuildAppBar extends StatelessWidget {
           StretchMode.fadeTitle,
         ],
         collapseMode: CollapseMode.pin,
-        background: MyCachedNetworkImage(imageurl: url),
+        background: InkWell(
+          onTap: () => MyNavigator.push(ViewImages()),
+          child: MyCachedNetworkImage(imageurl: url),
+        ),
       ),
       backgroundColor: Theme.of(context).primaryColor,
     );

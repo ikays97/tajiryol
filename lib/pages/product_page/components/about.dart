@@ -35,9 +35,8 @@ class BuildAbout extends StatelessWidget {
                       Text(
                         about,
                         style: TextStyle(
-                          fontSize: 18,
+                          fontSize: 15,
                           fontWeight: FontWeight.w300,
-                          letterSpacing: 1.2,
                         ),
                       ),
                     ],
