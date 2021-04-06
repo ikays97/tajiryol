@@ -1,18 +1,14 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
-class MyLoadingWidget extends StatelessWidget {
+class ProgressIndicatorSmall extends StatelessWidget {
+  const ProgressIndicatorSmall();
+
   @override
   Widget build(BuildContext context) {
-    final size = MediaQuery.of(context).size;
-    return Center(
-        child: Theme(
-      data: Theme.of(context).copyWith(
-        accentColor: Theme.of(context).accentColor,
-      ),
-      child: CupertinoActivityIndicator(
-        radius: size.width * 0.04,
-      ),
-    ));
+    return SizedBox(
+      width: 22.0,
+      height: 22.0,
+      child: CircularProgressIndicator(strokeWidth: 2.5),
+    );
   }
 }

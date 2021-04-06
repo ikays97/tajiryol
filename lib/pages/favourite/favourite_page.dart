@@ -132,7 +132,7 @@ class _FavouritesPageState extends State<FavouritesPage> {
                                     child: Center(
                                       child: Icon(
                                         CupertinoIcons.heart_fill,
-                                        size: 26,
+                                        size: 20,
                                         color: isLiked
                                             ? Theme.of(context).primaryColor
                                             : Colors.white,

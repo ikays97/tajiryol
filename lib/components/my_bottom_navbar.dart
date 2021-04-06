@@ -148,21 +148,24 @@ class CustomBottomBar extends StatelessWidget {
   Widget buildContainerBottomNav(Widget icon, Widget selectedIcon,
       {isSelected = false}) {
     return Container(
-      padding: EdgeInsets.all(isSelected ? 10 : 12),
+      padding: EdgeInsets.all(12),
       decoration: BoxDecoration(
-        color: isSelected ? Color(0xffF29B62) : Colors.white,
+        color: isSelected ? Color(0xFAFFEEE3) : Colors.white,
         shape: BoxShape.rectangle,
         borderRadius: BorderRadius.circular(13),
-        boxShadow: isSelected
-            ? [
-                BoxShadow(
-                    color: Colors.grey[300], blurRadius: 10, spreadRadius: 1)
-              ]
-            : [],
+        // boxShadow: isSelected
+        //     ? []
+        //     : [
+        //         BoxShadow(
+        //           offset: Offset(0, 3),
+        //           color: Color(0xFAFFEEE3),
+        //           blurRadius: 10,
+        //         )
+        // ],
       ),
-      height: 50,
-      width: 50,
-      child: isSelected ? selectedIcon : icon,
+      height: 45,
+      width: 45,
+      child: icon,
     );
   }
 }

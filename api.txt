@@ -1,0 +1,122 @@
+api/maincategories
+{
+    "data": [
+        {
+            name: Azyk-harytlar
+            slug: azyk-harytlar
+        }
+        {
+            name: Azyk-harytlar
+            slug: azyk-harytlar
+        }
+         {
+            name: Azyk-harytlar
+            slug: azyk-harytlar
+        }
+    ]
+}
+
+api/maincategories/{mainCategorySlug}
+{
+    "data": {
+        "name": azyk-harytlar,
+        "slug": ,
+        slides: [{
+            'slide': ,
+            'link': ,
+        }],
+        brands: [{
+            'name':
+            'icon':
+            'slug':
+        }],
+        promotions: [{
+            'slug':
+            'image':  
+        }],
+        subcategories: [{
+            'slug'
+            'name'
+            'icon'
+        }],
+    }
+}
+
+api/maincategories/{mainCategorySlug}/brand/{brandSlug}
+{
+    "data": {
+        "name": Nike,
+        "slug": nike,
+        count:
+        products: [{
+            slug
+            name
+            image
+            standardPrice
+            discountPrice
+        }],
+    }
+}
+
+api/maincategories/{mainCategorySlug}/promotion/{promotionSlug}
+{
+    "data": {
+        "name": Nike,
+        "slug": nike,
+        count:
+        products: [{
+            slug
+            name
+            image
+            standardPrice
+            discountPrice
+        }],
+    }
+}
+
+api/maincategories/{mainCategorySlug}/subcategory/{subcategorySlug}
+{
+    "data": {
+        "name": Nike,
+        "slug": nike,
+        count:
+        products: [{
+            slug
+            name
+            image
+            standardPrice
+            discountPrice
+        }],
+    }
+}
+
+api/categories
+{
+    {
+        slug:
+        name:
+        subcategories: [{
+            'slug'
+            'name'
+            'icon'
+        }],
+    }
+    {
+        slug:
+        name:
+        subcategories: [{
+            'slug'
+            'name'
+            'icon'
+        }],
+    }
+    {
+        slug:
+        name:
+        subcategories: [{
+            'slug'
+            'name'
+            'icon'
+        }],
+    }
+}

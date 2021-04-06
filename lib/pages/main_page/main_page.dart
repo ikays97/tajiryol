@@ -74,7 +74,7 @@ class TestPage2 extends StatelessWidget {
         context: context,
         leadingType: AppBarBackType.None,
         title: Text(
-          "Cart",
+          "Category",
           style: TextStyle(
             fontWeight: FontWeight.bold,
             fontSize: 24,
@@ -85,7 +85,7 @@ class TestPage2 extends StatelessWidget {
         color: Theme.of(context).cardColor,
         child: Center(
           child: Text(
-            "cart",
+            "Category",
             style: Theme.of(context).textTheme.bodyText1,
           ),
         ),
