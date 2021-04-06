@@ -11,12 +11,8 @@ void main(List<String> args) {
   runApp(
     MultiProvider(
       providers: [
-        ChangeNotifierProvider(
-          create: (_) => MainProvider(),
-        ),
-        ChangeNotifierProvider(
-          create: (_) => IndexProvider(),
-        ),
+        ChangeNotifierProvider(create: (_) => MainProvider()),
+        ChangeNotifierProvider(create: (_) => IndexProvider()),
       ],
       child: TajiryolApp(),
     ),
@@ -75,8 +71,8 @@ class _TajiryolAppState extends State<TajiryolApp> {
 }
 
 /// A widget that unfocus everything when tapped.
-///
-/// This implements the "Unfocus when tapping in empty space" behavior for the
+/// This implements the "Unfocus when tapping in empty space"
+/// behavior for the
 /// entire application.
 
 class _Unfocus extends StatelessWidget {

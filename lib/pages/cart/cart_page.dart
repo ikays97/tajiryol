@@ -52,7 +52,9 @@ class _CartPageState extends State<CartPage> {
             child: Container(
               margin: EdgeInsets.only(left: 8, top: 8, right: 8),
               decoration: BoxDecoration(
-                  color: Colors.white, borderRadius: BorderRadius.circular(8)),
+                color: Colors.white,
+                borderRadius: BorderRadius.circular(8),
+              ),
               child: Padding(
                 padding: EdgeInsets.symmetric(
                   horizontal: 10,
