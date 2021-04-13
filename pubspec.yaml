@@ -93,7 +93,7 @@ flutter:
           weight: 400
         - asset: assets/fonts/Oswald/Oswald-Medium.ttf
           weight: 500
-        - asset: assets/fonts/Oswald/Oswald-Semibold.ttf
+        - asset: assets/fonts/Oswald/Oswald-SemiBold.ttf
           weight: 600          
         - asset: assets/fonts/Oswald/Oswald-Bold.ttf
           weight: 700

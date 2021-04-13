@@ -105,166 +105,165 @@ class _CartPageState extends State<CartPage> {
               ),
             ),
           ),
-          SliverList(
-            delegate: SliverChildBuilderDelegate(
-              (BuildContext context, int index) {
-                return Container(
-                  height: size.height * 0.159,
-                  margin: EdgeInsets.symmetric(
+          SliverToBoxAdapter(
+            child: Column(
+              children: List.generate(8, (i) {
+                return Padding(
+                  padding: const EdgeInsets.symmetric(
                     vertical: 8,
                     horizontal: 8,
                   ),
-                  padding: EdgeInsets.all(8),
-                  decoration: BoxDecoration(
-                    color: Colors.white,
-                    borderRadius: BorderRadius.circular(8),
-                    boxShadow: [
-                      BoxShadow(
-                        offset: Offset(0, 2),
-                        blurRadius: 8,
-                        color: Colors.black54.withOpacity(0.03),
-                      ),
-                    ],
-                  ),
-                  child: Row(
-                    children: [
-                      Expanded(
-                        child: InkWell(
-                          onTap: () => MyNavigator.push(ProductPage()),
-                          child: Row(
-                            children: [
-                              // TODO: checkbox
-                              Container(
-                                width: size.width * 0.24,
-                                child: ClipRRect(
-                                  borderRadius: BorderRadius.circular(8),
-                                  child: MyCachedNetworkImage(imageurl: url),
+                  child: Container(
+                    decoration: BoxDecoration(
+                      color: Colors.white,
+                      borderRadius: BorderRadius.circular(8),
+                      boxShadow: [
+                        BoxShadow(
+                          offset: Offset(0, 2),
+                          blurRadius: 8,
+                          color: Colors.black54.withOpacity(0.03),
+                        ),
+                      ],
+                    ),
+                    child: Padding(
+                      padding: const EdgeInsets.all(8.0),
+                      child: Row(
+                        children: [
+                          InkWell(
+                            onTap: () => MyNavigator.push(ProductPage()),
+                            child: Row(
+                              children: [
+                                // TODO: checkbox
+                                Container(
+                                  width: size.width * 0.24,
+                                  child: ClipRRect(
+                                    borderRadius: BorderRadius.circular(8),
+                                    child: MyCachedNetworkImage(imageurl: url),
+                                  ),
                                 ),
-                              ),
-                              SizedBox(width: 10),
-                              //
-                              Expanded(
-                                child: Column(
-                                  crossAxisAlignment: CrossAxisAlignment.start,
-                                  children: [
-                                    Text.rich(
-                                      TextSpan(
-                                        text: 'Marka  ',
-                                        style: TextStyle(
-                                          fontSize: 14,
-                                          fontWeight: FontWeight.w500,
+                                Expanded(
+                                  child: Column(
+                                    crossAxisAlignment:
+                                        CrossAxisAlignment.start,
+                                    children: [
+                                      Text.rich(
+                                        TextSpan(
+                                          text: 'Marka  ',
+                                          style: TextStyle(
+                                            fontSize: 14,
+                                            fontWeight: FontWeight.w500,
+                                          ),
+                                          children: [
+                                            TextSpan(
+                                                text: random,
+                                                style: TextStyle(
+                                                  fontSize: 14,
+                                                  fontWeight: FontWeight.w400,
+                                                )),
+                                          ],
                                         ),
+                                        maxLines: 2,
+                                        overflow: TextOverflow.ellipsis,
+                                      ),
+                                      SizedBox(height: 5),
+                                      Text(
+                                        'Beden: 9-12',
+                                        style: TextStyle(
+                                          fontSize: 12,
+                                          fontWeight: FontWeight.w300,
+                                        ),
+                                      ),
+                                      SizedBox(height: 5),
+                                      Text(
+                                        'Takmynan 4-12 sagatda eltip bermek',
+                                        style: TextStyle(
+                                          fontSize: 12,
+                                          fontWeight: FontWeight.w300,
+                                        ),
+                                      ),
+                                      Spacer(),
+                                      Row(
                                         children: [
-                                          TextSpan(
-                                              text: random,
-                                              style: TextStyle(
-                                                fontSize: 14,
-                                                fontWeight: FontWeight.w400,
-                                              )),
-                                        ],
-                                      ),
-                                      maxLines: 2,
-                                      overflow: TextOverflow.ellipsis,
-                                    ),
-                                    SizedBox(height: 5),
-                                    Text(
-                                      'Beden: 9-12',
-                                      style: TextStyle(
-                                        fontSize: 12,
-                                        fontWeight: FontWeight.w300,
-                                      ),
-                                    ),
-                                    SizedBox(height: 5),
-                                    Text(
-                                      'Takmynan 4-12 sagatda eltip bermek',
-                                      style: TextStyle(
-                                        fontSize: 12,
-                                        fontWeight: FontWeight.w300,
-                                      ),
-                                    ),
-                                    Spacer(),
-                                    Row(
-                                      children: [
-                                        Container(
-                                          padding: EdgeInsets.only(
-                                              left: 10, right: 10),
-                                          decoration: BoxDecoration(
-                                              border: Border.all(
-                                            color: Color(0xff00BE67),
-                                          )),
-                                          child: Text(
-                                            '64.99 TMT',
-                                            style: TextStyle(
-                                              fontSize: 18,
-                                              fontWeight: FontWeight.w600,
+                                          Container(
+                                            padding: EdgeInsets.only(
+                                                left: 10, right: 10),
+                                            decoration: BoxDecoration(
+                                                border: Border.all(
                                               color: Color(0xff00BE67),
+                                            )),
+                                            child: Text(
+                                              '64.99 TMT',
+                                              style: TextStyle(
+                                                fontSize: 18,
+                                                fontWeight: FontWeight.w600,
+                                                color: Color(0xff00BE67),
+                                              ),
                                             ),
                                           ),
-                                        ),
-                                        SizedBox(width: 10),
-                                        Text(
-                                          '64.99',
-                                          style: TextStyle(
-                                            fontSize: 16,
-                                            color: Color(0xE0707070),
-                                            decoration:
-                                                TextDecoration.lineThrough,
+                                          SizedBox(width: 10),
+                                          Text(
+                                            '64.99',
+                                            style: TextStyle(
+                                              fontSize: 16,
+                                              color: Color(0xE0707070),
+                                              decoration:
+                                                  TextDecoration.lineThrough,
+                                            ),
                                           ),
-                                        ),
-                                      ],
-                                    ),
-                                  ],
+                                        ],
+                                      ),
+                                    ],
+                                  ),
                                 ),
-                              ),
-                            ],
+                              ],
+                            ),
                           ),
-                        ),
+                          SizedBox(
+                            width: 30,
+                            child: Column(
+                              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                              children: [
+                                InkWell(
+                                  onTap: () {
+                                    setState(() {
+                                      count += 1;
+                                    });
+                                  },
+                                  child: Icon(
+                                    CupertinoIcons.add_circled,
+                                    size: 27,
+                                    color: Theme.of(context).primaryColor,
+                                  ),
+                                ),
+                                Text(
+                                  count.toString(),
+                                  style: TextStyle(
+                                    fontWeight: FontWeight.bold,
+                                    fontSize: 20,
+                                    color: Theme.of(context).primaryColor,
+                                  ),
+                                ),
+                                InkWell(
+                                  onTap: () {
+                                    setState(() {
+                                      count -= 1;
+                                    });
+                                  },
+                                  child: Icon(
+                                    CupertinoIcons.minus_circle,
+                                    size: 27,
+                                    color: Theme.of(context).primaryColor,
+                                  ),
+                                ),
+                              ],
+                            ),
+                          ),
+                        ],
                       ),
-                      SizedBox(
-                        width: 30,
-                        child: Column(
-                          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                          children: [
-                            InkWell(
-                              onTap: () {
-                                setState(() {
-                                  count += 1;
-                                });
-                              },
-                              child: Icon(
-                                CupertinoIcons.add_circled,
-                                size: 27,
-                                color: Theme.of(context).primaryColor,
-                              ),
-                            ),
-                            Text(
-                              count.toString(),
-                              style: TextStyle(
-                                fontWeight: FontWeight.bold,
-                                fontSize: 20,
-                                color: Theme.of(context).primaryColor,
-                              ),
-                            ),
-                            InkWell(
-                              onTap: () {
-                                setState(() {
-                                  count -= 1;
-                                });
-                              },
-                              child: Icon(
-                                CupertinoIcons.minus_circle,
-                                size: 27,
-                                color: Theme.of(context).primaryColor,
-                              ),
-                            ),
-                          ],
-                        ),
-                      ),
-                    ],
+                    ),
                   ),
                 );
-              },
-              childCount: 8,
+              }),
             ),
           ),
         ],
