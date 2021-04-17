@@ -5,7 +5,6 @@ import 'package:tajiryol/utils/request.dart';
 class MainCatAPI {
   static Future<MaincategoryList> getData() async {
     var response = await RequestUtil().get('maincategories');
-    print(response);
     return MaincategoryList.fromJson(response);
   }
 }

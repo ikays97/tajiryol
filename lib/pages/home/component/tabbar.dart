@@ -22,7 +22,7 @@ class KTabBarWidget extends StatelessWidget implements PreferredSizeWidget {
           isScrollable: true,
           unselectedLabelColor: Colors.grey,
           labelColor: Theme.of(context).primaryColor,
-          tabs: _tabs
+          tabs: tabs
               .map((tab) => Container(
                     height: 30.0,
                     child: Tab(
@@ -33,9 +33,3 @@ class KTabBarWidget extends StatelessWidget implements PreferredSizeWidget {
     );
   }
 }
-
-List<Maincategory> _tabs = [
-  Maincategory(nameTM: 'Tab 1'),
-  Maincategory(nameTM: 'Tab 2'),
-  Maincategory(nameTM: 'Tab 3'),
-];

@@ -8,7 +8,8 @@ class MyCachedNetworkImage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return CachedNetworkImage(
-      imageUrl: imageurl,
+      imageUrl: imageurl ??
+          "http://192.168.137.181:81/assets/images/defaults/slider.png",
       placeholder: (_, __) => Center(
         child: Text(
           'placeholder-image',

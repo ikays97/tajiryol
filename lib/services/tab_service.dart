@@ -6,6 +6,6 @@ import 'package:tajiryol/utils/request.dart';
 class TabAPI {
   static Future<TabModel> getData(String slug) async {
     var response = await RequestUtil().get('maincategory/$slug');
-    return TabModel.fromJson(response);
+    return TabModel.fromJson(response['data']);
   }
 }

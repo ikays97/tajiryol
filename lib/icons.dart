@@ -5,7 +5,6 @@ import 'package:flutter_svg/flutter_svg.dart';
 class SvgIcons {
   SvgIcons._();
   static SvgPicture _svgAsset24dp(String assetPath) {
-    print(assetPath);
     return SvgPicture.asset(assetPath, width: 20, height: 20);
   }
 

@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:tajiryol/pages/cart/cart_page.dart';
+import 'package:tajiryol/utils/navigator.dart';
 
 import '../defaults.dart';
 
@@ -72,7 +74,7 @@ class CartBottom extends StatelessWidget {
                     },
                   ),
                 ),
-                onPressed: () {},
+                onPressed: () => MyNavigator.push(CartPage()),
                 child: Text(
                   'SEBEDE GEÇ',
                   style: TextStyle(

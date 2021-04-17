@@ -5,6 +5,5 @@ import 'package:tajiryol/utils/request.dart';
 class CategoryDataAPI {
   static Future<List<Category>> getCategoryData() async {
     var response = await RequestUtil().get('/categories');
-    print(response);
   }
 }

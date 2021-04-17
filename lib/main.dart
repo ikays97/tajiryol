@@ -8,6 +8,7 @@ import 'pages/main_page/main_page.dart';
 import 'pages/main_page/provider/main_provider.dart';
 
 void main(List<String> args) {
+  WidgetsFlutterBinding.ensureInitialized();
   runApp(
     MultiProvider(
       providers: [
@@ -38,7 +39,6 @@ class _TajiryolAppState extends State<TajiryolApp> {
       child: Builder(
         builder: (context) {
           final settings = AppSettings.of(context);
-          final token = prefs?.getString('token');
           return GetMaterialApp(
             title: 'Tajiryol',
             debugShowCheckedModeBanner: false,

@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:provider/provider.dart';
 import 'package:tajiryol/components/my_loading.dart';
 import 'package:tajiryol/pages/category/components/search_bar.dart';
@@ -11,7 +10,10 @@ import 'components/right_list_view.dart';
 class CategoryPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return CategoryPageContainer();
+    return ChangeNotifierProvider(
+      create: (_) => CategoryProvider(),
+      child: CategoryPageContainer(),
+    );
   }
 }
 
@@ -34,13 +36,14 @@ class CategoryPageContainerState extends State<CategoryPageContainer>
   double menueWidth;
   double itemHeight;
   double height;
+
   @override
   Widget build(BuildContext context) {
     super.build(context);
     final double statusBarHeight =
-        ScreenUtil().statusBarHeight; // Height of top status bar
+        MediaQuery.of(context).padding.top; // Height of top status bar
     final double bottomBarHeight =
-        ScreenUtil().bottomBarHeight; // Height of bottom status bar
+        MediaQuery.of(context).padding.bottom; // Height of bottom status bar
     final double scafoldHeight = 44; // Scafold height
     final double searchBarHeight = 49; // The height of the search box
     final double bottomTabbarHeight = 49; // The height of the bottom tabBar
@@ -54,7 +57,7 @@ class CategoryPageContainerState extends State<CategoryPageContainer>
     final state = Provider.of<CategoryProvider>(context);
     // List<SubCategoryListModel> listViewData = [];
     return state.loading
-        ? ProgressIndicatorSmall()
+        ? Center(child: ProgressIndicatorSmall())
         : Container(
             color: Color(0xFFFFFFFF),
             child: Column(

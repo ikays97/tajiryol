@@ -30,20 +30,12 @@ class TabSwiperBanner extends StatelessWidget {
         borderRadius: BorderRadius.circular(8),
         child: Swiper(
           itemBuilder: (BuildContext context, index) {
+            print(banners[index].image);
             return MyCachedNetworkImage(
               imageurl: banners[index].image,
             );
           },
-          itemCount: banners?.length,
-          pagination: new SwiperPagination(
-            alignment: Alignment.bottomCenter,
-            builder: RectSwiperPaginationBuilder(
-              color: Color(0xFF999999),
-              activeColor: Colors.red,
-              size: Size(5.0, 2),
-              activeSize: Size(5, 5),
-            ),
-          ),
+          itemCount: banners.length,
           curve: Curves.easeIn,
           scrollDirection: Axis.horizontal,
           autoplay: true,

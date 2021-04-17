@@ -9,13 +9,16 @@ class Promotion {
   @JsonKey(name: 'name')
   final String name;
 
-  @JsonKey(name: 'image')
-  final String image;
+  @JsonKey(name: 'banner_tm')
+  final String bannerTM;
+
+  @JsonKey(name: 'banner_ru')
+  final String bannerRU;
 
   @JsonKey(name: 'cat_id')
   final int catId;
 
-  Promotion({this.id, this.name, this.image, this.catId});
+  Promotion({this.id, this.name, this.catId, this.bannerTM, this.bannerRU});
 
   factory Promotion.fromJson(Map<String, dynamic> json) =>
       _$PromotionFromJson(json);

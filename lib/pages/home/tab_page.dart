@@ -70,14 +70,18 @@ class TabContainerState extends State<TabContainer>
         onRefresh: () => state.initData(refresh: true),
         footer: MyCustomFooter(),
         child: Container(
-          color: Theme.of(context).backgroundColor,
+          color: Theme.of(context).scaffoldBackgroundColor,
           child: ListView(
             padding: EdgeInsets.all(0),
             children: <Widget>[
-              TabBrandsWidget(data: state.brands),
-              TabSwiperBanner(banners: state.sliders),
-              TabPromotions(data: state.promotions),
-              TabSubCategoryGrid(subcategories: state.subcategories),
+              if (state.brands != null && state.brands.isNotEmpty)
+                TabBrandsWidget(data: state.brands),
+              if (state.sliders != null && state.sliders.isNotEmpty)
+                TabSwiperBanner(banners: state.sliders),
+              if (state.promotions != null && state.promotions.isNotEmpty)
+                TabPromotions(data: state.promotions),
+              if (state.subcategories != null && state.subcategories.isNotEmpty)
+                TabSubCategoryGrid(subcategories: state.subcategories),
             ],
           ),
         ),

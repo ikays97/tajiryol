@@ -2,7 +2,7 @@ import 'dart:async';
 import 'package:dio/dio.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
-const SERVER_API_URL = "http://192.168.1.100:82/api/";
+const SERVER_API_URL = "http://192.168.137.181:81/api/v2/app/";
 
 class RequestUtil {
   static RequestUtil _instance = RequestUtil._internal();
@@ -95,7 +95,6 @@ class RequestUtil {
         queryParameters: params,
         options: requestOptions,
       );
-      print(response);
 
       return response?.data;
     } on DioError catch (e) {

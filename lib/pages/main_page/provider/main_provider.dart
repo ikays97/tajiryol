@@ -7,12 +7,12 @@ class MainProvider with ChangeNotifier {
   int _tabBarSelectedIndex = 0;
   int get getTabBarSelectedIndex => _tabBarSelectedIndex;
   set setTabBarSelectedIndex(int value) {
+    _tabBarSelectedIndex = value;
     tabBarPageController.animateToPage(
       value,
       duration: Duration(milliseconds: 300),
       curve: Curves.easeInOut,
     );
-    _tabBarSelectedIndex = value;
     notifyListeners();
   }
 

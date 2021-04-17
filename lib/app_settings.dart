@@ -52,7 +52,8 @@ ThemeData genAppLightTheme() {
     appBarTheme: AppBarTheme(
       backwardsCompatibility: false,
       backgroundColor: Colors.white,
-      foregroundColor: _textLightColor,
+      foregroundColor: Colors.white,
+      iconTheme: IconThemeData(color: Colors.white),
     ),
     // This makes the visual density adapt to the platform that you run
     // the app on. For desktop platforms, the controls will be smaller and

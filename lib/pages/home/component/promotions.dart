@@ -16,9 +16,6 @@ class TabPromotions extends StatelessWidget {
 
   Widget _build(Size size) {
     List<Widget> listWidgets = data.map((i) {
-      // var bgColor = string2Color(i.bgColor);
-      // Color titleColor = string2Color(i.titleColor);
-      // Color subtitleColor = string2Color(i.subtitleColor);
       return ClipRRect(
         borderRadius: BorderRadius.circular(8),
         child: Container(
@@ -26,7 +23,7 @@ class TabPromotions extends StatelessWidget {
           width: size.width,
           height: size.height * 0.2,
           child: MyCachedNetworkImage(
-            imageurl: i.image,
+            imageurl: i.bannerTM,
           ),
         ),
       );

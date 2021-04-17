@@ -47,7 +47,6 @@ class _CartPageState extends State<CartPage> {
             pinned: true,
             backgroundColor: Theme.of(context).primaryColor,
           ),
-          // SliverPersistentHeader(delegate: ),
           SliverToBoxAdapter(
             child: Container(
               margin: EdgeInsets.only(left: 8, top: 8, right: 8),
@@ -129,95 +128,92 @@ class _CartPageState extends State<CartPage> {
                       padding: const EdgeInsets.all(8.0),
                       child: Row(
                         children: [
-                          InkWell(
-                            onTap: () => MyNavigator.push(ProductPage()),
-                            child: Row(
-                              children: [
-                                // TODO: checkbox
-                                Container(
-                                  width: size.width * 0.24,
-                                  child: ClipRRect(
-                                    borderRadius: BorderRadius.circular(8),
-                                    child: MyCachedNetworkImage(imageurl: url),
-                                  ),
-                                ),
-                                Expanded(
-                                  child: Column(
-                                    crossAxisAlignment:
-                                        CrossAxisAlignment.start,
-                                    children: [
-                                      Text.rich(
+                          Container(
+                            width: size.width * 0.24,
+                            child: ClipRRect(
+                              borderRadius: BorderRadius.circular(8),
+                              child: MyCachedNetworkImage(imageurl: url),
+                            ),
+                          ),
+                          const SizedBox(width: 6),
+                          Expanded(
+                            child: InkWell(
+                              onTap: () => MyNavigator.push(ProductPage()),
+                              child: Column(
+                                mainAxisAlignment: MainAxisAlignment.start,
+                                crossAxisAlignment: CrossAxisAlignment.start,
+                                children: [
+                                  Text.rich(
+                                    TextSpan(
+                                      text: 'Marka  ',
+                                      style: TextStyle(
+                                        fontSize: 14,
+                                        fontWeight: FontWeight.w500,
+                                      ),
+                                      children: [
                                         TextSpan(
-                                          text: 'Marka  ',
-                                          style: TextStyle(
-                                            fontSize: 14,
-                                            fontWeight: FontWeight.w500,
-                                          ),
-                                          children: [
-                                            TextSpan(
-                                                text: random,
-                                                style: TextStyle(
-                                                  fontSize: 14,
-                                                  fontWeight: FontWeight.w400,
-                                                )),
-                                          ],
-                                        ),
-                                        maxLines: 2,
-                                        overflow: TextOverflow.ellipsis,
-                                      ),
-                                      SizedBox(height: 5),
-                                      Text(
-                                        'Beden: 9-12',
-                                        style: TextStyle(
-                                          fontSize: 12,
-                                          fontWeight: FontWeight.w300,
-                                        ),
-                                      ),
-                                      SizedBox(height: 5),
-                                      Text(
-                                        'Takmynan 4-12 sagatda eltip bermek',
-                                        style: TextStyle(
-                                          fontSize: 12,
-                                          fontWeight: FontWeight.w300,
-                                        ),
-                                      ),
-                                      Spacer(),
-                                      Row(
-                                        children: [
-                                          Container(
-                                            padding: EdgeInsets.only(
-                                                left: 10, right: 10),
-                                            decoration: BoxDecoration(
-                                                border: Border.all(
-                                              color: Color(0xff00BE67),
-                                            )),
-                                            child: Text(
-                                              '64.99 TMT',
-                                              style: TextStyle(
-                                                fontSize: 18,
-                                                fontWeight: FontWeight.w600,
-                                                color: Color(0xff00BE67),
-                                              ),
-                                            ),
-                                          ),
-                                          SizedBox(width: 10),
-                                          Text(
-                                            '64.99',
+                                            text: random,
                                             style: TextStyle(
-                                              fontSize: 16,
-                                              color: Color(0xE0707070),
-                                              decoration:
-                                                  TextDecoration.lineThrough,
-                                            ),
+                                              fontSize: 14,
+                                              fontWeight: FontWeight.w400,
+                                            )),
+                                      ],
+                                    ),
+                                    maxLines: 2,
+                                    overflow: TextOverflow.ellipsis,
+                                  ),
+                                  const SizedBox(height: 5),
+                                  Text(
+                                    'Beden: 9-12',
+                                    style: TextStyle(
+                                      fontSize: 12,
+                                      fontWeight: FontWeight.w300,
+                                    ),
+                                  ),
+                                  const SizedBox(height: 5),
+                                  Text(
+                                    'Takmynan 4-12 sagatda eltip bermek',
+                                    style: TextStyle(
+                                      fontSize: 12,
+                                      fontWeight: FontWeight.w300,
+                                    ),
+                                  ),
+                                  const SizedBox(height: 10),
+                                  Row(
+                                    children: [
+                                      Container(
+                                        padding: EdgeInsets.only(
+                                            left: 10, right: 10),
+                                        decoration: BoxDecoration(
+                                            border: Border.all(
+                                          color: Color(0xff00BE67),
+                                        )),
+                                        child: Text(
+                                          '64.99 TMT',
+                                          style: TextStyle(
+                                            fontSize: 18,
+                                            fontWeight: FontWeight.w600,
+                                            color: Color(0xff00BE67),
                                           ),
-                                        ],
+                                        ),
+                                      ),
+                                      SizedBox(width: 10),
+                                      Text(
+                                        '64.99',
+                                        style: TextStyle(
+                                          fontSize: 16,
+                                          color: Color(0xE0707070),
+                                          decoration:
+                                              TextDecoration.lineThrough,
+                                        ),
                                       ),
                                     ],
                                   ),
-                                ),
-                              ],
+                                ],
+                              ),
                             ),
                           ),
+                          const SizedBox(width: 6),
                           SizedBox(
                             width: 30,
                             child: Column(
